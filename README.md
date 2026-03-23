@@ -1,4 +1,4 @@
-# 🚀 Projeto Web com Django
+# CARBON-DEFUSE
 
 ## 📌 Ideia da Aplicação
 
