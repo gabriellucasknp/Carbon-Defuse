@@ -249,7 +249,7 @@ Ajudar usuários e empresas a visualizar, de forma clara e interativa, os benef�
 
 ---
 
-## 📖 Histórias de Usuário (mínimo 10)
+## 📖 Histórias de Usuário 
 
 ### 🚗 1. Calcular viagem
 
