@@ -15,12 +15,12 @@ Ajudar usuários e empresas a visualizar, de forma clara e interativa, os benef�
 
 ## 👥 Papéis da Equipe
 
-* **Dev Fullstack:** Gabriel Lucas Soares da Silva
-* **Product Owner (P.O):** Lucas Nery Sereno
-* **Dev Back-End:** Integrante 2
-* **Dev Front-End:** Integrante 3
-* **Scrum Master:** Integrante 4
-* **QA:** Integrante 5
+* **Dev Back end:** Gabriel Lucas Soares da Silva
+* **Product Owner:** Lucas Nery Sereno
+* **Dev Front End:** Lucas Rogério Moura Brito
+* **Designer:** Gabriel Dias Mendonça de Melo
+* **Screw Master:** Felipe Ulisses Cavalcanti de Albuquerque
+* **QA:** Jailson de Souza Junior
 
 ---
 
@@ -166,9 +166,9 @@ project/
 ## 📋 Backlog (Trello)
 
 Adicione aqui o print do backlog:
-
+[
 [![Backlog](./docs/backlog.png)](https://trello.com/invite/b/69c1bde657f53fe31d811741/ATTI282f55e340e0a2bb43f12305ee7197d7321288D9/carbon-defuse)
-
+](https://trello.com/b/9rcdpxLn)
 ---
 
 ## 📌 Quadro Kanban
