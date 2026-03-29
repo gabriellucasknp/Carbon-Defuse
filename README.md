@@ -478,29 +478,15 @@ As ideias evoluem a calculadora para uma ferramenta estratégica, combinando an�
 ## 🏁 Conclusão
 
 Projeto altamente relevante para portfólio, unindo lógica de negócio, dados, sustentabilidade e experiência do usuário.
-# 🌱 Carbon Defuse
-
-O **Carbon Defuse** é uma plataforma focada em ajudar usuários comuns (B2C) e empresas com metas de sustentabilidade (B2B/ESG) a calcularem custos de viagem, otimizarem rotas e entenderem seu impacto ambiental através da redução de emissões de CO2.
-
----
-
-## 🎨 Protótipos de Baixa Fidelidade (Lo-Fi)
-
-Foram desenvolvidos sketches e storyboards para 10 histórias de usuário, divididas entre as necessidades do usuário final e de empresas (gestão de frota).
-
-🔗 **[Clique aqui para acessar o protótipo completo no Figma](COLE_AQUI_O_LINK_DO_FIGMA)**
-
----
-
-## 🎥 Screencast de Apresentação
-
-[![Assista ao Screencast](https://img.youtube.com/vi/COLE_A_ID_DO_VIDEO_AQUI/0.jpg)](COLE_O_LINK_DO_SEU_VIDEO_AQUI)
-
 ---
 
 ## ⚙️ Diagramas de Atividades do Sistema
 
-               Calcular Custo da Viagem
+Abaixo estão os diagramas de atividades (UML) correspondentes a cada história de usuário, detalhando o fluxo exato de interação do sistema com base nos storyboards.
+
+### 👤 Usuário Final (B2C)
+
+#### 1. Calcular Custo da Viagem
 ```mermaid
 flowchart TD
     A([Início]) --> B[Usuário acessa a página inicial]
@@ -511,8 +497,10 @@ flowchart TD
     F --> G[Sistema processa os dados]
     G --> H[Exibe resultado com valores]
     H --> I([Fim])
+```
 
-         Ver Custo Estimado de Combustível
+#### 2. Ver Custo Estimado de Combustível
+```mermaid
 flowchart TD
     A([Início]) --> B[Após o cálculo da viagem]
     B --> C[Sistema exibe card destacado]
@@ -520,8 +508,10 @@ flowchart TD
     D --> E[Exibe preço por litro usado]
     E --> F[Apresenta total em reais de forma clara]
     F --> G([Fim])
+```
 
-          Comparar Custos
+#### 3. Comparar Custos
+```mermaid
 flowchart TD
     A([Início]) --> B[Usuário navega para Comparar]
     B --> C[Seleciona Rota A no primeiro dropdown]
@@ -531,8 +521,10 @@ flowchart TD
     F --> G[Destaca visualmente a opção mais econômica]
     G --> H[Mostra diferença de valores em reais]
     H --> I([Fim])
+```
 
-          Visualizar Tempo Economizado
+#### 4. Visualizar Tempo Economizado
+```mermaid
 flowchart TD
     A([Início]) --> B[Após calcular viagem com pedágio]
     B --> C[Sistema compara com rota alternativa]
@@ -540,8 +532,10 @@ flowchart TD
     D --> E[Mostra tempo economizado em horas]
     E --> F[Apresenta explicação do benefício]
     F --> G([Fim])
+```
 
-          Simular Gastos Mensais
+#### 5. Simular Gastos Mensais
+```mermaid
 flowchart TD
     A([Início]) --> B[Usuário acessa Simulação Mensal]
     B --> C[Informa viagens por semana]
@@ -551,8 +545,10 @@ flowchart TD
     F --> G[Sistema calcula e exibe gráfico mensal]
     G --> H[Mostra projeção anual]
     H --> I([Fim])
+```
 
-          Visualização Gráfica
+#### 6. Visualização Gráfica
+```mermaid
 flowchart TD
     A([Início]) --> B[Em qualquer tela com dados]
     B --> C[Sistema apresenta gráficos coloridos]
@@ -561,7 +557,10 @@ flowchart TD
     E --> F[Usa pizza para distribuição percentual]
     F --> G[Usuário interage passando o mouse]
     G --> H([Fim])
-         Ver Impacto Ambiental
+```
+
+#### 7. Ver Impacto Ambiental
+```mermaid
 flowchart TD
     A([Início]) --> B[Após cálculo de viagem]
     B --> C[Sistema exibe card verde de impacto]
@@ -569,7 +568,10 @@ flowchart TD
     D --> E[Compara com alternativas mais sustentáveis]
     E --> F[Destaca veículos elétricos como zero emissões]
     F --> G([Fim])
-      Salvar Simulações
+```
+
+#### 8. Salvar Simulações
+```mermaid
 flowchart TD
     A([Início]) --> B[Após calcular viagem]
     B --> C[Usuário clica em Salvar]
@@ -579,8 +581,14 @@ flowchart TD
     F --> G[Visualiza lista de todas as simulações]
     G --> H[Pode excluir itens específicos]
     H --> I([Fim])
+```
 
-          Calcular Custos de Frota
+---
+
+### 🏢 Empresa / Gestão de Frota (B2B/ESG)
+
+#### 9. Calcular Custos de Frota
+```mermaid
 flowchart TD
     A([Início]) --> B[Gestor acessa Gestão de Frota]
     B --> C[Clica em Adicionar Veículo]
@@ -590,8 +598,10 @@ flowchart TD
     F --> G[Exibe dashboard com totais]
     G --> H[Mostra gráfico de distribuição de custos]
     H --> I([Fim])
+```
 
-            Gerar Relatórios Automáticos
+#### 10. Gerar Relatórios Automáticos
+```mermaid
 flowchart TD
     A([Início]) --> B[Gestor acessa Relatórios]
     B --> C[Seleciona período e tipo]
@@ -601,3 +611,4 @@ flowchart TD
     F --> G[Apresenta insights e recomendações]
     G --> H[Permite exportar em PDF]
     H --> I([Fim])
+```
