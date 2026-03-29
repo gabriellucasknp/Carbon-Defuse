@@ -500,11 +500,7 @@ Foram desenvolvidos sketches e storyboards para 10 histórias de usuário, divid
 
 ## ⚙️ Diagramas de Atividades do Sistema
 
-Abaixo estão os diagramas de atividades (UML) correspondentes a cada história de usuário, detalhando o fluxo exato de interação do sistema com base nos storyboards.
-
-### 👤 Usuário Final (B2C)
-
-#### 1. Calcular Custo da Viagem
+               Calcular Custo da Viagem
 ```mermaid
 flowchart TD
     A([Início]) --> B[Usuário acessa a página inicial]
@@ -517,7 +513,7 @@ flowchart TD
     H --> I([Fim])
 
          Ver Custo Estimado de Combustível
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Após o cálculo da viagem]
     B --> C[Sistema exibe card destacado]
     C --> D[Mostra quantidade em litros]
@@ -526,7 +522,7 @@ flowchart TD
     F --> G([Fim])
 
           Comparar Custos
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Usuário navega para Comparar]
     B --> C[Seleciona Rota A no primeiro dropdown]
     C --> D[Seleciona Rota B no segundo dropdown]
@@ -537,7 +533,7 @@ flowchart TD
     H --> I([Fim])
 
           Visualizar Tempo Economizado
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Após calcular viagem com pedágio]
     B --> C[Sistema compara com rota alternativa]
     C --> D[Exibe card com ícone de relógio]
@@ -546,7 +542,7 @@ flowchart TD
     F --> G([Fim])
 
           Simular Gastos Mensais
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Usuário acessa Simulação Mensal]
     B --> C[Informa viagens por semana]
     C --> D[Define distância média por viagem]
@@ -557,7 +553,7 @@ flowchart TD
     H --> I([Fim])
 
           Visualização Gráfica
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Em qualquer tela com dados]
     B --> C[Sistema apresenta gráficos coloridos]
     C --> D[Usa barras para comparações]
@@ -566,7 +562,7 @@ flowchart TD
     F --> G[Usuário interage passando o mouse]
     G --> H([Fim])
          Ver Impacto Ambiental
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Após cálculo de viagem]
     B --> C[Sistema exibe card verde de impacto]
     C --> D[Mostra emissões de CO2 em kg]
@@ -574,7 +570,7 @@ flowchart TD
     E --> F[Destaca veículos elétricos como zero emissões]
     F --> G([Fim])
       Salvar Simulações
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Após calcular viagem]
     B --> C[Usuário clica em Salvar]
     C --> D[Sistema armazena cálculo localmente]
@@ -585,7 +581,7 @@ flowchart TD
     H --> I([Fim])
 
           Calcular Custos de Frota
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Gestor acessa Gestão de Frota]
     B --> C[Clica em Adicionar Veículo]
     C --> D[Preenche dados do veículo]
@@ -596,7 +592,7 @@ flowchart TD
     H --> I([Fim])
 
             Gerar Relatórios Automáticos
-    flowchart TD
+flowchart TD
     A([Início]) --> B[Gestor acessa Relatórios]
     B --> C[Seleciona período e tipo]
     C --> D[Clica em Gerar Relatório]
