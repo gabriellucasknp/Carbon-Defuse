@@ -300,6 +300,8 @@ Como empresa, quero gerar relatórios para tomada de decisão.
 * **Confirmation:** Critérios de aceitação definidos para validar funcionalidades
 
 ---
+## Sketches e StoryBoards das Histórias de Usuário: 
+https://ignite-opera-61434632.figma.site/
 
 ## 📊 Priorização das Entregas
 
