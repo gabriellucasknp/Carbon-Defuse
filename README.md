@@ -183,6 +183,8 @@ Adicione aqui o print do quadro:
 
 https://ignite-opera-61434632.figma.site/
 
+#Screencast: https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk
+
 ## ▶️ Como Executar o Projeto
 
 ### 1. Clonar repositório
