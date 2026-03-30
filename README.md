@@ -23,48 +23,48 @@ Ajudar usuários e empresas a visualizar, de forma clara e interativa, os benef�
 * **QA:** Jailson de Souza Junior
 
 ---
-
-## 📖 Histórias de Usuário 
-
-### 🚗 1. Calcular viagem
-
-Como usuário, quero inserir origem, destino e veículo para calcular custo da viagem.
-
-### ⛽ 2. Estimar combustível
-
-Como usuário, quero ver o custo estimado de combustível para planejar gastos.
-
-### 💳 3. Comparar com/sem Taggy
-
-Como usuário, quero comparar custos para entender a economia.
-
-### ⏱️ 4. Economia de tempo
-
-Como usuário, quero visualizar tempo economizado em pedágios.
-
-### 📅 5. Simulação mensal
-
-Como usuário, quero simular meus gastos mensais com viagens.
-
-### 🏢 6. Modo empresa
-
-Como empresa, quero inserir frota e rotas para calcular custos totais.
-
-### 📊 7. Visualização gráfica
-
-Como usuário, quero ver gráficos para entender os dados facilmente.
-
-### 🌱 8. Impacto ambiental
-
-Como usuário, quero ver redução de CO₂ para entender impacto ambiental.
-
-### 💾 9. Salvar simulações
-
-Como usuário, quero salvar cálculos para consultar depois.
-
-### 📄 10. Relatórios automáticos
-
-Como empresa, quero gerar relatórios para tomada de decisão.
+             
+             ## 📖 Histórias de Usuário 
+             
+             ### 🚗 1. Calcular viagem
+             
+             Como usuário, quero inserir origem, destino e veículo para calcular custo da viagem.
+             
+             ### ⛽ 2. Estimar combustível
+             
+             Como usuário, quero ver o custo estimado de combustível para planejar gastos.
+             
+             ### 💳 3. Comparar com/sem Taggy
+             
+             Como usuário, quero comparar custos para entender a economia.
+             
+             ### ⏱️ 4. Economia de tempo
+             
+             Como usuário, quero visualizar tempo economizado em pedágios.
+             
+             ### 📅 5. Simulação mensal
+             
+             Como usuário, quero simular meus gastos mensais com viagens.
+             
+             ### 🏢 6. Modo empresa
+             
+             Como empresa, quero inserir frota e rotas para calcular custos totais.
+             
+             ### 📊 7. Visualização gráfica
+             
+             Como usuário, quero ver gráficos para entender os dados facilmente.
+             
+             ### 🌱 8. Impacto ambiental
+             
+             Como usuário, quero ver redução de CO₂ para entender impacto ambiental.
+             
+             ### 💾 9. Salvar simulações
+             
+             Como usuário, quero salvar cálculos para consultar depois.
+             
+             ### 📄 10. Relatórios automáticos
+             
+             Como empresa, quero gerar relatórios para tomada de decisão.
 
 ---
 
