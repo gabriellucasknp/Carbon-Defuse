@@ -179,6 +179,10 @@ Adicione aqui o print do quadro:
 
 ---
 
+##Sketches/Storyboards das Histórias de Usuário 
+
+https://ignite-opera-61434632.figma.site/
+
 ## ▶️ Como Executar o Projeto
 
 ### 1. Clonar repositório
