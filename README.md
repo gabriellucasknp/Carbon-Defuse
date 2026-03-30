@@ -223,3 +223,207 @@ python manage.py runserver
 
 ---
 
+# 📊 Diagramas das Histórias de Usuário
+
+---
+
+## 🚗 1. Calcular Viagem
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Abre o app]
+    B --> C[Insere origem]
+    C --> D[Insere destino]
+    D --> E[Seleciona veículo]
+    E --> F{Dados válidos?}
+    F -- ❌ Não --> G[Exibe mensagem de erro]
+    G --> C
+    F -- ✅ Sim --> H[Calcula rota]
+    H --> I[Consulta pedágios]
+    I --> J[Consulta distância]
+    J --> K[Exibe custo total da viagem]
+    K --> L([✅ Resultado apresentado])
+```
+
+---
+
+## ⛽ 2. Estimar Combustível
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Informa distância da viagem]
+    B --> C[Informa tipo de combustível]
+    C --> D[Informa consumo médio do veículo\nkm/l]
+    D --> E[Informa preço atual do combustível]
+    E --> F[Calcula litros necessários]
+    F --> G[Calcula custo total de combustível]
+    G --> H{Exibe resultado}
+    H --> I[💰 Custo estimado]
+    H --> J[⛽ Litros necessários]
+    H --> K[📍 Postos sugeridos na rota]
+    I & J & K --> L([✅ Planejamento de gastos concluído])
+```
+
+---
+
+## 💳 3. Comparar Com / Sem Taggy
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Insere rota e veículo]
+    B --> C[Sistema calcula dois cenários]
+
+    C --> D[🔴 Sem Taggy]
+    C --> E[🟢 Com Taggy]
+
+    D --> F[Valor em dinheiro nos pedágios]
+    D --> G[Tempo parado nas filas]
+
+    E --> H[Valor com desconto Taggy]
+    E --> I[Passagem sem parar]
+
+    F & G --> J[💸 Custo total SEM Taggy]
+    H & I --> K[💚 Custo total COM Taggy]
+
+    J & K --> L[📊 Comparativo lado a lado]
+    L --> M([✅ Usuário entende a economia])
+```
+
+---
+
+## ⏱️ 4. Economia de Tempo
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Informa rota da viagem]
+    B --> C[Sistema identifica pedágios na rota]
+    C --> D[Calcula tempo médio de fila\npor pedágio]
+    D --> E[Multiplica por número de pedágios]
+    E --> F[Tempo perdido SEM Taggy]
+    F --> G[Tempo poupado COM Taggy]
+    G --> H{Visualização}
+    H --> I[⏱️ Minutos economizados por viagem]
+    H --> J[📅 Horas economizadas por mês]
+    H --> K[📆 Dias economizados por ano]
+    I & J & K --> L([✅ Usuário visualiza ganho de tempo])
+```
+
+---
+
+## 📅 5. Simulação Mensal
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Informa viagens recorrentes]
+    B --> C[Informa frequência\nDiária / Semanal / Mensal]
+    C --> D[Informa rotas utilizadas]
+    D --> E[Sistema multiplica custos por frequência]
+    E --> F[Calcula total mensal SEM Taggy]
+    E --> G[Calcula total mensal COM Taggy]
+    F & G --> H[Exibe resumo mensal]
+    H --> I[💰 Gasto total no mês]
+    H --> J[💚 Economia mensal com Taggy]
+    H --> K[📈 Projeção anual]
+    I & J & K --> L([✅ Planejamento financeiro concluído])
+```
+
+---
+
+## 🏢 6. Modo Empresa
+
+```mermaid
+flowchart TD
+    A([🏢 Empresa]) --> B[Acessa Modo Empresa]
+    B --> C[Cadastra frota de veículos]
+    C --> D[Cadastra rotas utilizadas]
+    D --> E[Define frequência das viagens]
+    E --> F[Sistema calcula por veículo]
+    F --> G[Agrega custos da frota completa]
+    G --> H{Exibe painel gerencial}
+    H --> I[ Custo por veículo]
+    H --> J[ Custo total da frota]
+    H --> K[ Economia potencial com Taggy]
+    H --> L[ Ranking de rotas mais caras]
+    I & J & K & L --> M([✅ Gestão de custos da frota])
+```
+
+---
+
+## 📊 7. Visualização Gráfica
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Realiza cálculo ou simulação]
+    B --> C[Sistema processa os dados]
+    C --> D{Tipo de gráfico}
+    D --> E[ Gráfico de rosca\nDistribuição de custos]
+    D --> F[ Gráfico de barras\nCom vs Sem Taggy]
+    D --> G[ Gráfico de linha\nEvolução mensal]
+    D --> H[ Mapa da rota\ncom pedágios marcados]
+    E & F & G & H --> I[Renderiza visualizações interativas]
+    I --> J([✅ Usuário compreende os dados facilmente])
+```
+
+---
+
+## 🌱 8. Impacto Ambiental
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Informa rota e veículo]
+    B --> C[Sistema calcula distância total]
+    C --> D[Identifica tipo de combustível]
+    D --> E[Aplica fator de emissão de CO₂\ng de CO₂ por km]
+    E --> F[Calcula emissão total]
+    F --> G{Com Taggy vs Sem Taggy}
+    G --> H[Rotas otimizadas\nreduzem distância]
+    G --> I[Menor tempo parado\nmenos emissão em fila]
+    H & I --> J[🌱 Redução de CO₂ estimada]
+    J --> K[Equivalência em árvores plantadas]
+    K --> L([✅ Usuário entende seu impacto ambiental])
+```
+
+---
+
+## 💾 9. Salvar Simulações
+
+```mermaid
+flowchart TD
+    A([👤 Usuário]) --> B[Realiza uma simulação]
+    B --> C[Clica em 'Salvar simulação']
+    C --> D{Usuário autenticado?}
+    D --  Não --> E[Redireciona para login/cadastro]
+    E --> F[Usuário se autentica]
+    F --> C
+    D --  Sim --> G[Nomeia a simulação]
+    G --> H[Sistema salva com data e parâmetros]
+    H --> I[Simulação disponível no histórico]
+    I --> J{Ações disponíveis}
+    J --> K[ Visualizar]
+    J --> L[ Editar]
+    J --> M[ Excluir]
+    J --> N Compartilhar]
+    K & L & M & N --> O([✅ Consulta futura garantida])
+```
+
+---
+
+## 📄 10. Relatórios Automáticos
+
+```mermaid
+flowchart TD
+    A([🏢 Empresa]) --> B[Acessa painel de relatórios]
+    B --> C[Seleciona período\nSemanal / Mensal / Anual]
+    C --> D[Seleciona escopo\nFrota completa ou veículo específico]
+    D --> E[Sistema compila os dados]
+    E --> F{Gera relatório com}
+    F --> G[ Gráficos de desempenho]
+    F --> H[ Resumo de custos]
+    F --> I[ Impacto ambiental]
+    F --> J[ Comparativo de períodos]
+    G & H & I & J --> K{Exportar como}
+    K --> L[ PDF]
+    K --> M[ Excel / CSV]
+    K --> N[ Envio por e-mail automático]
+    L & M & N --> O([✅ Tomada de decisão embasada])
+```
