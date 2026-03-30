@@ -19,7 +19,7 @@ Ajudar usuários e empresas a visualizar, de forma clara e interativa, os benef�
 * **Product Owner:** Lucas Nery Sereno
 * **Dev Front End:** Lucas Rogério Moura Brito
 * **Designer:** Gabriel Dias Mendonça de Melo
-* **Screw Master:** Felipe Ulisses Cavalcanti de Albuquerque
+* **Scrum Master:** Felipe Ulisses Cavalcanti de Albuquerque
 * **QA:** Jailson de Souza Junior
 
 ---
