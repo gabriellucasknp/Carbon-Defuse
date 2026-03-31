@@ -138,27 +138,34 @@ Mostra redução de CO₂ e uso de papel.
 ---
 
 ## 🛠️ Tecnologias
-
-* Python
-* Django
-* Django REST Framework
-* PostgreSQL
+* Java
+* Spring Boot
+* Spring Data JPA
+* Spring Security
+* MySQL
 * Docker
 * HTML/CSS/JS
 
 ---
 
 ## 🧩 Estrutura do Projeto
-
 ```
 project/
- ├── trips/
- ├── users/
- ├── analytics/
- ├── core/
- ├── templates/
- ├── static/
- ├── manage.py
+ ├── src/
+ │   ├── main/
+ │   │   ├── java/com/project/
+ │   │   │   ├── trips/
+ │   │   │   ├── users/
+ │   │   │   ├── analytics/
+ │   │   │   ├── core/
+ │   │   │   └── ProjectApplication.java
+ │   │   └── resources/
+ │   │       ├── templates/
+ │   │       ├── static/
+ │   │       └── application.properties
+ │   └── test/
+ ├── pom.xml
+```
 ```
 
 ---
