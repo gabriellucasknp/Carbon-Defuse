@@ -192,51 +192,13 @@ https://ignite-opera-61434632.figma.site/
 
 #Screencast: https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk
 
-## ▶️ Como Executar o Projeto
-
-### 1. Clonar repositório
-
-```
-git clone <repo>
-```
-
-### 2. Criar ambiente virtual
-
-```
-python -m venv venv
-```
-
-### 3. Ativar ambiente
-
-```
-venv\\Scripts\\activate
-```
-
-### 4. Instalar dependências
-
-```
-pip install -r requirements.txt
-```
-
-### 5. Rodar migrações
-
-```
-python manage.py migrate
-```
-
-### 6. Executar servidor
-
-```
-python manage.py runserver
-```
-
----
-
 # Diagramas das Histórias de Usuário
 
+```
+
 ---
 
-## 1. Calcular Viagem
+## 1. calcular viagem
 
 ```mermaid
 flowchart TD
