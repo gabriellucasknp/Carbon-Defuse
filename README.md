@@ -186,7 +186,7 @@ Adicione aqui o print do quadro:
 
 ---
 
-##Sketches/Storyboards das Histórias de Usuário 
+#protótipos Lofi das Histórias de Usuário 
 
 https://ignite-opera-61434632.figma.site/
 
