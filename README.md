@@ -174,8 +174,7 @@ project/
 
 Adicione aqui o print do backlog:
 [
-[![Backlog](./docs/backlog.png)](https://trello.com/invite/b/69c1bde657f53fe31d811741/ATTI282f55e340e0a2bb43f12305ee7197d7321288D9/carbon-defuse)
-](https://trello.com/b/9rcdpxLn)
+https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677
 ---
 
 ## 📌 Quadro Kanban
