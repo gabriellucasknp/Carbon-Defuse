@@ -16,11 +16,11 @@ Ajudar usuários e empresas a visualizar, de forma clara e interativa, os benef�
 ## 👥 Papéis da Equipe
 
 * **Dev Back end:** Gabriel Lucas Soares da Silva
-* **Product Owner:** Lucas Nery Sereno
-* **Dev Front End:** Lucas Rogério Moura Brito
+* **Product Owner:** Lucas Rogério Moura Brito
+* **Dev Front End:** Jailson de Souza Jr
 * **Designer:** Gabriel Dias Mendonça de Melo
 * **Scrum Master:** Felipe Ulisses Cavalcanti de Albuquerque
-* **QA:** Jailson de Souza Junior
+* **QA:** Lucas Nery Sereno
 
 ---
              
