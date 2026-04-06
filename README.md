@@ -166,9 +166,10 @@ project/
  │   └── test/
  ├── pom.xml
 ```
-```
+
 
 ---
+
 
 ### 📋 Backlog (Trello)
 
@@ -196,7 +197,7 @@ https://ignite-opera-61434632.figma.site/
 ```
 
 ---
-
+```
 ## 1. calcular viagem
 
 ```mermaid
