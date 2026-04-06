@@ -182,7 +182,7 @@ https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677
 
 Adicione aqui o print do quadro:
 
-![Quadro](./docs/quadro.png)
+[![Quadro](./docs/quadro.png)](https://app.clickup.com/90171098067/v/li/901712587532)
 
 ---
 
