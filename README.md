@@ -192,6 +192,11 @@ https://ignite-opera-61434632.figma.site/
 
 #Screencast: https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk
 
+#📊Prototipo de Baixa Fidelidade (Wireframes)
+https://www.figma.com/design/oe43e0G9b3QdvUG5EnYXw6
+
+
+
 # Diagramas das Histórias de Usuário
 
 ```
