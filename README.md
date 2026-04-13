@@ -39,9 +39,9 @@ O projeto visa resolver a falta de clareza nos custos reais de transporte, conso
 ## 📂 Documentação do Projeto
 Acesse os documentos técnicos do projeto nos links abaixo:
 * [📄 Backlog Detalhado (PDF/Markdown)](#)
-* [🖼️ Protótipos de Baixa Fidelidade](#)
-* [🎥 Screencast de Demonstração](#)
-* [📊 Diagramas de Fluxo](#)
+* [🖼️ Protótipos de Baixa Fidelidade](#t)
+* [🎥 Screencast de Demonstração](https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk)
+* [📊 Diagramas de Fluxo](https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677/2kz9vgyk-697)
 
 ---
 
@@ -64,7 +64,7 @@ As histórias abaixo guiam o desenvolvimento do MVP (Produto Mínimo Viável):
 ## 🛠 Tecnologias Utilizadas
 * **Gestão:** ClickUp
 * **Design:** Figma (Protótipos Lo-Fi)
-* **Linguagem/Framework:** (Ex: React / Python / Node - *Preencha aqui*)
+* **Linguagem/Framework:** (Java,spring boot,Spring data Jpa,Spring Security,HTML,CSS,JS,Docker,PostgreSQL)
 * **Versionamento:** Git & GitHub
 
 ---
@@ -73,8 +73,7 @@ As histórias abaixo guiam o desenvolvimento do MVP (Produto Mínimo Viável):
 | Nome | GitHub |
 | :--- | :--- |
 | **Gabriel Lucas** | [@gabriellucasknp](https://github.com/gabriellucasknp) |
-| **Lucas Nery Sereno** | [@Lnsereno](#) |
-| **Integrante 3** | [@username](#) |
+| **Lucas Nery Sereno** | [@Lnsereno](https://github.com/LNSereno) |
 
 ---
 <p align="center">Projeto desenvolvido para fins acadêmicos - 2026</p>
