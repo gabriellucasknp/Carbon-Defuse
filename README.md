@@ -38,8 +38,8 @@ O projeto visa resolver a falta de clareza nos custos reais de transporte, conso
 
 ## 📂 Documentação do Projeto
 Acesse os documentos técnicos do projeto nos links abaixo:
-* [📄 Backlog Detalhado (PDF/Markdown)](#)
-* [🖼️ Protótipos de Baixa Fidelidade](#t)
+* [📄 Backlog Detalhado](https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677/2kz9vgyk-697)
+* [🖼️ Protótipos de Baixa Fidelidade](https://ignite-opera-61434632.figma.site)
 * [🎥 Screencast de Demonstração](https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk)
 * [📊 Diagramas de Fluxo](https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677/2kz9vgyk-697)
 
