@@ -73,7 +73,7 @@ As histórias abaixo guiam o desenvolvimento do MVP (Produto Mínimo Viável):
 | Nome | GitHub |
 | :--- | :--- |
 | **Gabriel Lucas** | [@gabriellucasknp](https://github.com/gabriellucasknp) |
-| **Integrante 2** | [@username](#) |
+| **Lucas Nery Sereno** | [@Lnsereno](#) |
 | **Integrante 3** | [@username](#) |
 
 ---
