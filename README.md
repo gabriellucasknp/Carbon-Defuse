@@ -1,4 +1,8 @@
-# 🚗 Carbon Defuse | Simulador de Viagens & Taggy
+<p align="center">
+  <img src="Logo Git.png" alt="Carbon Defuse Logo" width="400">
+</p>
+
+<h1 align="center">🚗 Carbon Defuse | Simulador de Viagens & Taggy</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status">
