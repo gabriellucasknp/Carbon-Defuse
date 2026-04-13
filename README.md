@@ -5,9 +5,7 @@
 <h1 align="center">🚗 Carbon Defuse | Simulador de Viagens & Taggy</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status">
-  <img src="https://img.shields.io/badge/Entrega%201%20&%202-Conclu%C3%ADdas-brightgreen" alt="Entregas">
-  <img src="https://img.shields.io/github/license/gabriellucasknp/Carbon-Defuse" alt="License">
+  <img src="assets/quadro.png" alt="Project Kanban Board" width="800">
 </p>
 
 > **Carbon Defuse** é uma plataforma de simulação logística que permite a usuários e empresas calcular o custo total de viagens, comparando a economia financeira e de tempo com o uso do sistema **Taggy**, além de monitorar o impacto ambiental (emissões de CO₂) de cada rota.
