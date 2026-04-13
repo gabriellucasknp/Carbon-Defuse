@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="Logo Git.png" alt="Carbon Defuse Logo" width="400">
+  <img src="assets/Logo Git.png" alt="Carbon Defuse Logo" width="400">
 </p>
 
 <h1 align="center">🚗 Carbon Defuse | Simulador de Viagens & Taggy</h1>
 
 <p align="center">
-  <img src="assets/quadro.png" alt="Project Kanban Board" width="800">
+  <img src="assets/Quadro.png" alt="Project Kanban Board" width="800">
 </p>
 
 > **Carbon Defuse** é uma plataforma de simulação logística que permite a usuários e empresas calcular o custo total de viagens, comparando a economia financeira e de tempo com o uso do sistema **Taggy**, além de monitorar o impacto ambiental (emissões de CO₂) de cada rota.
