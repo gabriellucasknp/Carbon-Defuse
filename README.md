@@ -1,33 +1,33 @@
 <p align="center">
-  <img src="assets/Logo Git.png" alt="Carbon Defuse Logo" width="400">
+  <img src="assets/Logo Git.png" alt="Carbon Defuse Logo" width="350">
 </p>
 
 <h1 align="center">🚗 Carbon Defuse | Simulador de Viagens & Taggy</h1>
 
-<p align="center">
-  <img src="assets/Quadro.png" alt="Project Kanban Board" width="800">
-</p>
-
-> **Carbon Defuse** é uma plataforma de simulação logística que permite a usuários e empresas calcular o custo total de viagens, comparando a economia financeira e de tempo com o uso do sistema **Taggy**, além de monitorar o impacto ambiental (emissões de CO₂) de cada rota.
-
 ---
 
 ## 📑 Sumário
-- [Visão Geral](#-visão-geral)
-- [Status das Entregas](#-status-das-entregas)
-- [Documentação do Projeto](#-documentação-do-projeto)
-- [Backlog de Histórias de Usuário](#-backlog-de-histórias-de-usuário)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Equipe](#-equipe)
+- [🌟 Visão Geral](#-visão-geral)
+- [📈 Status das Entregas](#-status-das-entregas)
+- [📂 Documentação do Projeto](#-documentação-do-projeto)
+- [📝 Backlog de Histórias de Usuário](#-backlog-de-histórias-de-usuário-resumo)
+- [🛠️ Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [👥 Equipe](#-equipe)
 
 ---
 
 ## 🌟 Visão Geral
-O projeto visa resolver a falta de clareza nos custos reais de transporte, consolidando em um só lugar gastos com combustível, pedágios e tempo perdido em filas. O diferencial está no **Modo Empresa**, que permite gestão de frota, e no **Indicador 🌱**, que traduz a queima de combustível em árvores necessárias para compensação.
+O **Carbon Defuse** é uma plataforma de simulação logística que permite a usuários e empresas calcular o custo total de viagens, comparando a economia financeira e de tempo com o uso do sistema **Taggy**, além de monitorar o impacto ambiental (emissões de CO₂) de cada rota.
+
+O projeto resolve a falta de clareza nos custos reais de transporte, consolidando gastos com combustível, pedágios e tempo em filas. O diferencial está no **Modo Empresa** para gestão de frotas e no **Indicador 🌱**, que traduz a emissão de carbono em árvores necessárias para compensação ambiental.
 
 ---
 
 ## 📈 Status das Entregas
+
+<p align="center">
+  <img src="assets/Quadro.png" alt="Project Kanban Board" width="850">
+</p>
 
 | Etapa | Descrição | Status |
 | :--- | :--- | :---: |
@@ -39,17 +39,15 @@ O projeto visa resolver a falta de clareza nos custos reais de transporte, conso
 ---
 
 ## 📂 Documentação do Projeto
-Acesse os documentos técnicos do projeto nos links abaixo:
-* [📄 Backlog Detalhado](https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677/2kz9vgyk-697)
-* [🖼️ Protótipos de Baixa Fidelidade](https://ignite-opera-61434632.figma.site)
-* [🎥 Screencast de Demonstração](https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk)
-* [📊 Diagramas de Fluxo](https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677/2kz9vgyk-697)
+Acesse os documentos técnicos e protótipos nos links oficiais:
+* [📄 **Backlog Detalhado**](https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677/2kz9vgyk-697)
+* [🖼️ **Protótipos (Figma)**](https://ignite-opera-61434632.figma.site)
+* [🎥 **Screencast de Demonstração**](https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk)
+* [📊 **Diagramas de Fluxo**](https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677/2kz9vgyk-697)
 
 ---
 
 ## 📝 Backlog de Histórias de Usuário (Resumo)
-As histórias abaixo guiam o desenvolvimento do MVP (Produto Mínimo Viável):
-
 1. **Calcular viagem:** Origem, destino e custo total.
 2. **Estimar combustível:** Baseado em consumo e preço atual.
 3. **Comparar com/sem Taggy:** Visão clara da economia financeira.
@@ -63,10 +61,18 @@ As histórias abaixo guiam o desenvolvimento do MVP (Produto Mínimo Viável):
 
 ---
 
-## 🛠 Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
+
+### **Backend & Infra**
+* **Linguagem:** Java 17+
+* **Framework:** Spring Boot 3 (Spring Data JPA, Spring Security)
+* **Banco de Dados:** PostgreSQL
+* **Containerização:** Docker
+
+### **Frontend & Ferramentas**
+* **Interface:** HTML5, CSS3, JavaScript
+* **Design:** Figma
 * **Gestão:** ClickUp
-* **Design:** Figma (Protótipos Lo-Fi)
-* **Linguagem/Framework:** (Java,spring boot,Spring data Jpa,Spring Security,HTML,CSS,JS,Docker,PostgreSQL)
 * **Versionamento:** Git & GitHub
 
 ---
