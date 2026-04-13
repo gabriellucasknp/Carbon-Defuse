@@ -1,170 +1,80 @@
-# CARBON-DEFUSE
+# 🚗 Carbon Defuse | Simulador de Viagens & Taggy
 
-## 📌 Ideia da Aplicação
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status">
+  <img src="https://img.shields.io/badge/Entrega%201%20&%202-Conclu%C3%ADdas-brightgreen" alt="Entregas">
+  <img src="https://img.shields.io/github/license/gabriellucasknp/Carbon-Defuse" alt="License">
+</p>
 
-**Nome:** Carbon Defuse 🌱🚗
-Uma calculadora inteligente inspirada na Taggy que simula custos de viagens, economia financeira e impacto ambiental ao utilizar pedágios e estacionamentos eletrônicos.
-
----
-
-## 🎯 Objetivo
-
-Ajudar usuários e empresas a visualizar, de forma clara e interativa, os benefícios econômicos e ambientais do uso de soluções automáticas como a Taggy.
+> **Carbon Defuse** é uma plataforma de simulação logística que permite a usuários e empresas calcular o custo total de viagens, comparando a economia financeira e de tempo com o uso do sistema **Taggy**, além de monitorar o impacto ambiental (emissões de CO₂) de cada rota.
 
 ---
 
-## 👥 Papéis da Equipe
-
-* **Dev Back end:** Gabriel Lucas Soares da Silva
-* **Product Owner:** Lucas Rogério Moura Brito
-* **Dev Front End:** Jailson de Souza Jr
-* **Designer:** Gabriel Dias Mendonça de Melo
-* **Scrum Master:** Felipe Ulisses Cavalcanti de Albuquerque
-* **QA:** Lucas Nery Sereno
-
----
-             
-             ## 📖 Histórias de Usuário 
-             
-             ### 🚗 1. Calcular viagem
-             
-             Como usuário, quero inserir origem, destino e veículo para calcular custo da viagem.
-             
-             ### ⛽ 2. Estimar combustível
-             
-             Como usuário, quero ver o custo estimado de combustível para planejar gastos.
-             
-             ### 💳 3. Comparar com/sem Taggy
-             
-             Como usuário, quero comparar custos para entender a economia.
-             
-             ### ⏱️ 4. Economia de tempo
-             
-             Como usuário, quero visualizar tempo economizado em pedágios.
-             
-             ### 📅 5. Simulação mensal
-             
-             Como usuário, quero simular meus gastos mensais com viagens.
-             
-             ### 🏢 6. Modo empresa
-             
-             Como empresa, quero inserir frota e rotas para calcular custos totais.
-             
-             ### 📊 7. Visualização gráfica
-             
-             Como usuário, quero ver gráficos para entender os dados facilmente.
-             
-             ### 🌱 8. Impacto ambiental
-             
-             Como usuário, quero ver redução de CO₂ para entender impacto ambiental.
-             
-             ### 💾 9. Salvar simulações
-             
-             Como usuário, quero salvar cálculos para consultar depois.
-             
-             ### 📄 10. Relatórios automáticos
-             
-             Como empresa, quero gerar relatórios para tomada de decisão.
+## 📑 Sumário
+- [Visão Geral](#-visão-geral)
+- [Status das Entregas](#-status-das-entregas)
+- [Documentação do Projeto](#-documentação-do-projeto)
+- [Backlog de Histórias de Usuário](#-backlog-de-histórias-de-usuário)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Equipe](#-equipe)
 
 ---
 
-## ✅ 3Cs das Histórias
-
-* **Card:** Histórias descritas acima
-* **Conversation:** Refinamento contínuo com o time
-* **Confirmation:** Critérios de aceitação definidos para validar funcionalidades
+## 🌟 Visão Geral
+O projeto visa resolver a falta de clareza nos custos reais de transporte, consolidando em um só lugar gastos com combustível, pedágios e tempo perdido em filas. O diferencial está no **Modo Empresa**, que permite gestão de frota, e no **Indicador 🌱**, que traduz a queima de combustível em árvores necessárias para compensação.
 
 ---
 
-## 📊 Priorização das Entregas
+## 📈 Status das Entregas
 
-### 🔥 Alta Prioridade
-
-* Calcular viagem
-* Comparação com/sem Taggy
-* Cadastro/Login
-
-### ⚡ Média Prioridade
-
-* Simulação mensal
-* Modo empresa
-* Impacto ambiental
-
-### 🧊 Baixa Prioridade
-
-* Gráficos
-* Relatórios automáticos
-* Salvamento de simulações
+| Etapa | Descrição | Status |
+| :--- | :--- | :---: |
+| **Entrega 1** | Backlog, Histórias de Usuário (3Cs) e Diagramas | ✅ |
+| **Entrega 2** | Protótipos Lo-Fi e Screencast de Apresentação | ✅ |
+| **Entrega 3** | Implementação das US01, US02 e US03 | 🏗️ |
+| **Entrega 4** | Implementação das US04 a US10 | 📅 |
 
 ---
 
-## 🧠 Funcionalidades Baseadas no Brainwriting
-
-### 1. Calculadora de despesas de viagem
-
-Usuário informa origem, destino e veículo.
-Sistema calcula pedágios, combustível e custo total.
-
-### 2. Comparação Taggy vs tradicional
-
-Exibe diferença de custos e tempo.
-
-### 3. Simulador mensal
-
-Calcula gastos e economia com base em frequência de viagens.
-
-### 4. Modo corporativo
-
-Analisa frotas e rotas médias.
-
-### 5. Visualização gráfica
-
-Exibe gráficos de custos e economia.
-
-### 6. Impacto ambiental
-
-Mostra redução de CO₂ e uso de papel.
+## 📂 Documentação do Projeto
+Acesse os documentos técnicos do projeto nos links abaixo:
+* [📄 Backlog Detalhado (PDF/Markdown)](#)
+* [🖼️ Protótipos de Baixa Fidelidade](#)
+* [🎥 Screencast de Demonstração](#)
+* [📊 Diagramas de Fluxo](#)
 
 ---
 
-## 🛠️ Tecnologias
-* Java
-* Spring Boot
-* Spring Data JPA
-* Spring Security
-* PostgreSQL
-* Docker
-* HTML/CSS/JS
+## 📝 Backlog de Histórias de Usuário (Resumo)
+As histórias abaixo guiam o desenvolvimento do MVP (Produto Mínimo Viável):
 
-
----
-
-
-### 📋 Backlog (Trello)
-
-Adicione aqui o print do backlog:
-[
-https://app.clickup.com/90171098067/v/dc/2kz9vgyk-677
----
-
-## 📌 Quadro Kanban
-
-Adicione aqui o print do quadro:
-
-https://app.clickup.com/90171098067/v/b/2kz9vgyk-717
+1. **Calcular viagem:** Origem, destino e custo total.
+2. **Estimar combustível:** Baseado em consumo e preço atual.
+3. **Comparar com/sem Taggy:** Visão clara da economia financeira.
+4. **Economia de tempo:** Tempo poupado em filas de pedágio.
+5. **Simulação mensal:** Projeção de gastos recorrentes.
+6. **Modo empresa:** Cálculo para múltiplos veículos/frotas.
+7. **Visualização gráfica:** Dashboards interativos.
+8. **Impacto ambiental:** Cálculo de emissão de CO₂.
+9. **Salvar simulações:** Histórico para usuários autenticados.
+10. **Relatórios automáticos:** Exportação em PDF e Excel para empresas.
 
 ---
 
-#protótipos Lofi das Histórias de Usuário 
+## 🛠 Tecnologias Utilizadas
+* **Gestão:** ClickUp
+* **Design:** Figma (Protótipos Lo-Fi)
+* **Linguagem/Framework:** (Ex: React / Python / Node - *Preencha aqui*)
+* **Versionamento:** Git & GitHub
 
-https://ignite-opera-61434632.figma.site/
+---
 
-#Screencast: https://drive.google.com/file/d/1P_Wi3_xW9Hr4-8Oe3ZbyY9el_fQXwVpF/view?usp=drivesdk
+## 👥 Equipe
+| Nome | GitHub |
+| :--- | :--- |
+| **Gabriel Lucas** | [@gabriellucasknp](https://github.com/gabriellucasknp) |
+| **Integrante 2** | [@username](#) |
+| **Integrante 3** | [@username](#) |
 
-#📊Prototipo de Baixa Fidelidade (Wireframes)
-https://www.figma.com/design/oe43e0G9b3QdvUG5EnYXw6
-
-
-
-# Diagramas das Histórias de Usuário
-
+---
+<p align="center">Projeto desenvolvido para fins acadêmicos - 2026</p>
