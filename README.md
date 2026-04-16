@@ -75,8 +75,14 @@ Acesse os documentos técnicos e protótipos nos links oficiais:
 ## 👥 Equipe
 | Nome | GitHub |
 | :--- | :--- |
-| **Gabriel Lucas** | [@gabriellucasknp](https://github.com/gabriellucasknp) |
-| **Lucas Nery Sereno** | [@Lnsereno](https://github.com/LNSereno) |
+| **Gabriel Lucas** | (https://github.com/gabriellucasknp) |
+| **Lucas Nery Sereno** | (https://github.com/LNSereno) |
+| **Gabriel Dias** | (https://github.com/Diaszy7) | 
+| **Felipe Ulisses** | (https://github.com/FelipeUCAA) | 
+| **Lucas Rogério** | (https://github.com/LucasRMBrito-git)) | 
+| **Jailson Junior** | [(https://github.com/JootaJR) | 
+
+
 
 ---
 <p align="center">Projeto desenvolvido para fins acadêmicos - 2026</p>
