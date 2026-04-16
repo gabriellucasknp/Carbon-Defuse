@@ -63,17 +63,12 @@ Acesse os documentos técnicos e protótipos nos links oficiais:
 
 ## 🛠️ Tecnologias Utilizadas
 
-### **Backend & Infra**
-* **Linguagem:** Java 17+
-* **Framework:** Spring Boot 3 (Spring Data JPA, Spring Security)
-* **Banco de Dados:** PostgreSQL
-* **Containerização:** Docker
-
 ### **Frontend & Ferramentas**
-* **Interface:** HTML5, CSS3, JavaScript
+* **Interface:** HTML5, CSS3, JavaScript, Typescript
 * **Design:** Figma
 * **Gestão:** ClickUp
 * **Versionamento:** Git & GitHub
+* * **Conteinzerização:** Docker
 
 ---
 
