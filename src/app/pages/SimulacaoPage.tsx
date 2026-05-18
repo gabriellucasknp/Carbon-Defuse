@@ -1,109 +1,236 @@
 import PageLayout from "../components/PageLayout";
 import { useState } from "react";
+import { useImpact } from "../context/ImpactContext";
+
+const locais: any = [
+  { nome: "Acre", lat: -9.0238, lng: -70.812 },
+  { nome: "Alagoas", lat: -9.5713, lng: -36.782 },
+  { nome: "Amapá", lat: 1.41, lng: -51.77 },
+  { nome: "Amazonas", lat: -3.4168, lng: -65.8561 },
+  { nome: "Bahia", lat: -12.5797, lng: -41.7007 },
+  { nome: "Ceará", lat: -5.4984, lng: -39.3206 },
+  { nome: "Distrito Federal", lat: -15.7998, lng: -47.8645 },
+  { nome: "Espírito Santo", lat: -19.1834, lng: -40.3089 },
+  { nome: "Goiás", lat: -15.827, lng: -49.8362 },
+  { nome: "Maranhão", lat: -4.9609, lng: -45.2744 },
+  { nome: "Mato Grosso", lat: -12.6819, lng: -56.9211 },
+  { nome: "Mato Grosso do Sul", lat: -20.7722, lng: -54.7852 },
+  { nome: "Minas Gerais", lat: -18.5122, lng: -44.555 },
+  { nome: "Pará", lat: -3.4168, lng: -52.3346 },
+  { nome: "Paraíba", lat: -7.2399, lng: -36.7819 },
+  { nome: "Paraná", lat: -24.89, lng: -51.55 },
+  { nome: "Pernambuco", lat: -8.8137, lng: -36.9541 },
+  { nome: "Piauí", lat: -7.7183, lng: -42.7289 },
+  { nome: "Rio de Janeiro", lat: -22.25, lng: -42.66 },
+  { nome: "Rio Grande do Norte", lat: -5.4026, lng: -36.9541 },
+  { nome: "Rio Grande do Sul", lat: -30.0346, lng: -53.25 },
+  { nome: "Rondônia", lat: -10.83, lng: -63.34 },
+  { nome: "Roraima", lat: 1.99, lng: -61.33 },
+  { nome: "Santa Catarina", lat: -27.2423, lng: -50.2189 },
+  { nome: "São Paulo", lat: -22.19, lng: -48.79 },
+  { nome: "Sergipe", lat: -10.5741, lng: -37.3857 },
+  { nome: "Tocantins", lat: -10.1753, lng: -48.2982 }
+];
+
+const calcularDistancia = (origem: any, destino: any) => {
+  const R = 6371;
+  const dLat = ((destino.lat - origem.lat) * Math.PI) / 180;
+  const dLng = ((destino.lng - origem.lng) * Math.PI) / 180;
+
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((origem.lat * Math.PI) / 180) *
+      Math.cos((destino.lat * Math.PI) / 180) *
+      Math.sin(dLng / 2) ** 2;
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+};
 
 export default function SimulacaoPage() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [vehicleType, setVehicleType] = useState("");
+  const [result, setResult] = useState<any>(null);
+
+  const [showOriginList, setShowOriginList] = useState(false);
+  const [showDestinationList, setShowDestinationList] = useState(false);
+
+  const { addSimulation } = useImpact();
+
+  const filtrar = (texto: string) =>
+    locais.filter((l: any) =>
+      l.nome.toLowerCase().includes(texto.toLowerCase())
+    );
+
+  const handleCalcular = () => {
+    const origemObj = locais.find((l: any) => l.nome === origin);
+    const destinoObj = locais.find((l: any) => l.nome === destination);
+
+    if (!origemObj || !destinoObj || !vehicleType) {
+      alert("Selecione opções válidas");
+      return;
+    }
+
+    const distancia = calcularDistancia(origemObj, destinoObj);
+    const tempo = (distancia / 80) * 60;
+
+    const consumoPorKm: any = {
+      sedan: 0.06,
+      suv: 0.08,
+      pickup: 0.1,
+      compact: 0.05
+    };
+
+    const combustivel = distancia * consumoPorKm[vehicleType];
+    const co2 = combustivel * 2.3;
+
+    const resultado = {
+      origem: origin,
+      destino: destination,
+      distancia: Math.round(distancia),
+      co2,
+      combustivel,
+      tempo,
+      data: new Date().toISOString()
+    };
+
+    setResult(resultado);
+    addSimulation(resultado);
+  };
 
   return (
     <PageLayout>
-      <div className="flex-1 relative w-full overflow-auto">
-        <div className="overflow-clip rounded-[inherit] size-full">
-          <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pt-[24px] px-[16px] md:px-[32px] pb-[32px] relative min-h-full">
-            <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full max-w-7xl mx-auto">
-              <div className="content-stretch flex items-start relative shrink-0 w-full">
-                <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[28px] md:leading-[32px] min-w-px not-italic relative text-[#101828] text-[20px] md:text-[24px]">Simulação de Rota</p>
-              </div>
-              <div className="relative shrink-0 w-full">
-                <p className="font-['Inter:Regular',sans-serif] font-normal leading-[20px] not-italic text-[#4a5565] text-[14px]">Calcule o impacto ambiental de sua viagem antes de partir</p>
-              </div>
-              <div className="bg-white border-[#e5e7eb] border-[0.571px] rounded-[14px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1)] p-4 md:p-6 w-full mt-4 md:mt-6 max-w-3xl">
-                <div className="space-y-4">
-                  <div>
-                    <label className="flex items-center gap-2 font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[20px] text-[#101828] text-[14px] mb-2">
-                      <svg className="size-[16px]" fill="none" viewBox="0 0 16 16">
-                        <path stroke="#00A63E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33333" d="M8 14.667A6.667 6.667 0 108 1.333a6.667 6.667 0 000 13.334z"/>
-                        <path stroke="#00A63E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33333" d="M8 4.667V8l2.667 2.667"/>
-                      </svg>
-                      Origem
-                    </label>
-                    <input
-                      type="text"
-                      value={origin}
-                      onChange={(e) => setOrigin(e.target.value)}
-                      placeholder="Ex: São Paulo, SP"
-                      className="w-full h-[37.143px] border-[#d1d5dc] border-[0.571px] rounded-[10px] px-4 font-['Inter:Regular',sans-serif] text-[14px]"
-                    />
-                  </div>
-                  <div>
-                    <label className="flex items-center gap-2 font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[20px] text-[#101828] text-[14px] mb-2">
-                      <svg className="size-[16px]" fill="none" viewBox="0 0 16 16">
-                        <path stroke="#00A63E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33333" d="M8 14.667A6.667 6.667 0 108 1.333a6.667 6.667 0 000 13.334z"/>
-                      </svg>
-                      Destino
-                    </label>
-                    <input
-                      type="text"
-                      value={destination}
-                      onChange={(e) => setDestination(e.target.value)}
-                      placeholder="Ex: Rio de Janeiro, RJ"
-                      className="w-full h-[37.143px] border-[#d1d5dc] border-[0.571px] rounded-[10px] px-4 font-['Inter:Regular',sans-serif] text-[14px]"
-                    />
-                  </div>
-                  <div>
-                    <label className="flex items-center gap-2 font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[20px] text-[#101828] text-[14px] mb-2">
-                      <svg className="size-[16px]" fill="none" viewBox="0 0 16 16">
-                        <path stroke="#00A63E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33333" d="M13.333 5.333H2.667L5.333 2.667"/>
-                        <path stroke="#00A63E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33333" d="M2.667 10.667h10.666L10.667 13.333"/>
-                        <path stroke="#00A63E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33333" d="M6 11.333H10"/>
-                        <path stroke="#00A63E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33333" d="M2.667 5.333v6A2 2 0 004.667 13.333h6.666a2 2 0 002-2v-6"/>
-                      </svg>
-                      Tipo de Veículo
-                    </label>
-                    <select
-                      value={vehicleType}
-                      onChange={(e) => setVehicleType(e.target.value)}
-                      className="w-full h-[37.143px] border-[#d1d5dc] border-[0.571px] rounded-[10px] px-4 font-['Inter:Regular',sans-serif] text-[14px]"
-                    >
-                      <option value="">Selecione o tipo</option>
-                      <option value="sedan">Sedan</option>
-                      <option value="suv">SUV</option>
-                      <option value="pickup">Caminhonete</option>
-                      <option value="compact">Compacto</option>
-                    </select>
-                  </div>
-                  <button className="bg-gradient-to-r from-[#00a63e] to-[#096] h-[36px] rounded-[10px] shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1)] w-full mt-4">
-                    <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[20px] text-white text-[14px] text-center">Calcular Impacto</p>
-                  </button>
-                </div>
-              </div>
-              {origin && destination && vehicleType && (
-                <div className="bg-gradient-to-r from-[#00a63e] to-[#096] border-[#7bf1a8] border-2 rounded-[14px] shadow-lg p-4 md:p-6 w-full max-w-3xl mt-4">
-                  <p className="font-['Inter:Bold',sans-serif] font-bold leading-[24px] md:leading-[28px] text-white text-[16px] md:text-[18px] mb-4">Resultado da Simulação</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
-                    <div className="bg-[rgba(255,255,255,0.2)] rounded-[10px] p-4 text-center">
-                      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[32px] text-white text-[24px]">2.5 kg</p>
-                      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[16px] text-[#dcfce7] text-[12px]">CO₂ Estimado</p>
-                    </div>
-                    <div className="bg-[rgba(255,255,255,0.2)] rounded-[10px] p-4 text-center">
-                      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[32px] text-white text-[24px]">45 km</p>
-                      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[16px] text-[#dcfce7] text-[12px]">Distância</p>
-                    </div>
-                    <div className="bg-[rgba(255,255,255,0.2)] rounded-[10px] p-4 text-center">
-                      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[32px] text-white text-[24px]">3.2 L</p>
-                      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[16px] text-[#dcfce7] text-[12px]">Combustível</p>
-                    </div>
-                  </div>
-                  <div className="mt-4 bg-[rgba(255,255,255,0.1)] rounded-lg p-4">
-                    <p className="font-['Inter:Regular',sans-serif] font-normal leading-[20px] text-[#dcfce7] text-[14px]">
-                      💡 Dica: Com Taggy, você pode economizar até 0.5 kg de CO₂ nesta rota evitando filas e paradas desnecessárias!
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
+      <div className="max-w-3xl mx-auto p-6">
+        <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100 space-y-5">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-800">
+              Simulação de Rota
+            </h1>
+            <p className="text-gray-500 mt-1">
+              Calcule distância, consumo e emissão de CO₂
+            </p>
           </div>
+
+          {/* ORIGEM */}
+          <div className="relative">
+            <input
+              value={origin}
+              onChange={(e) => {
+                setOrigin(e.target.value);
+                setShowOriginList(true);
+              }}
+              onBlur={() =>
+                setTimeout(() => setShowOriginList(false), 100)
+              }
+              placeholder="Cidade de origem"
+              className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
+            />
+
+            {showOriginList && origin && (
+              <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
+                {filtrar(origin).map((l: any) => (
+                  <div
+                    key={l.nome}
+                    onClick={() => {
+                      setOrigin(l.nome);
+                      setShowOriginList(false);
+                    }}
+                    className="px-4 py-3 hover:bg-green-50 cursor-pointer transition"
+                  >
+                    {l.nome}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* DESTINO */}
+          <div className="relative">
+            <input
+              value={destination}
+              onChange={(e) => {
+                setDestination(e.target.value);
+                setShowDestinationList(true);
+              }}
+              onBlur={() =>
+                setTimeout(() => setShowDestinationList(false), 100)
+              }
+              placeholder="Cidade de destino"
+              className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
+            />
+
+            {showDestinationList && destination && (
+              <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
+                {filtrar(destination).map((l: any) => (
+                  <div
+                    key={l.nome}
+                    onClick={() => {
+                      setDestination(l.nome);
+                      setShowDestinationList(false);
+                    }}
+                    className="px-4 py-3 hover:bg-green-50 cursor-pointer transition"
+                  >
+                    {l.nome}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* VEÍCULO */}
+          <select
+            value={vehicleType}
+            onChange={(e) => setVehicleType(e.target.value)}
+            className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
+          >
+            <option value="">Tipo de veículo</option>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+            <option value="pickup">Caminhonete</option>
+            <option value="compact">Compacto</option>
+          </select>
+
+          {/* BOTÃO */}
+          <button
+            onClick={handleCalcular}
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold p-4 rounded-xl shadow-md transition duration-300"
+          >
+            Calcular Impacto
+          </button>
+
+          {/* RESULTADO */}
+          {result && (
+            <div className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-2xl p-6 shadow-lg grid md:grid-cols-2 gap-4">
+              <div className="bg-white/10 p-4 rounded-xl">
+                <p className="text-sm opacity-80">Distância</p>
+                <p className="text-2xl font-bold">
+                  {result.distancia} km
+                </p>
+              </div>
+
+              <div className="bg-white/10 p-4 rounded-xl">
+                <p className="text-sm opacity-80">CO₂ Emitido</p>
+                <p className="text-2xl font-bold">
+                  {result.co2.toFixed(2)} kg
+                </p>
+              </div>
+
+              <div className="bg-white/10 p-4 rounded-xl">
+                <p className="text-sm opacity-80">Combustível</p>
+                <p className="text-2xl font-bold">
+                  {result.combustivel.toFixed(2)} L
+                </p>
+              </div>
+
+              <div className="bg-white/10 p-4 rounded-xl">
+                <p className="text-sm opacity-80">Tempo</p>
+                <p className="text-2xl font-bold">
+                  {result.tempo.toFixed(0)} min
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </PageLayout>
