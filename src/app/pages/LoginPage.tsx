@@ -6,12 +6,48 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    localStorage.setItem("isAuthenticated", "true");
-    navigate("/");
-  };
+const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
 
+  try {
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        senha: password,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.error || "Erro ao fazer login");
+      return;
+    }
+
+    localStorage.setItem("token", data.token);
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify(data.user)
+    );
+
+    localStorage.setItem(
+      "isAuthenticated",
+      "true"
+    );
+
+    alert("Login realizado com sucesso!");
+
+    navigate("/");
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao conectar ao servidor");
+  }
+};
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#00a63e] to-[#096] flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">

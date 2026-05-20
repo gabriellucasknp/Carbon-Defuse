@@ -12,15 +12,45 @@ export default function CadastroPage() {
   });
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.senha !== formData.confirmarSenha) {
-      alert("As senhas não coincidem!");
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (formData.senha !== formData.confirmarSenha) {
+    alert("As senhas não coincidem!");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:3000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nome: formData.nome,
+        email: formData.email,
+        senha: formData.senha,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.error || "Erro ao cadastrar");
       return;
     }
+
     localStorage.setItem("isAuthenticated", "true");
-    navigate("/");
-  };
+    localStorage.setItem("user", JSON.stringify(data));
+
+    alert("Conta criada com sucesso!");
+
+    
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao conectar com servidor");
+  }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({

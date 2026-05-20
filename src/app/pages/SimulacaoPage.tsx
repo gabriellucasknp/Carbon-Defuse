@@ -82,21 +82,41 @@ export default function SimulacaoPage() {
       compact: 0.05
     };
 
-    const combustivel = distancia * consumoPorKm[vehicleType];
-    const co2 = combustivel * 2.3;
+ const combustivel = distancia * consumoPorKm[vehicleType];
+const co2 = combustivel * 2.3;
 
-    const resultado = {
-      origem: origin,
-      destino: destination,
-      distancia: Math.round(distancia),
-      co2,
-      combustivel,
-      tempo,
-      data: new Date().toISOString()
-    };
+const token = localStorage.getItem("token");
 
-    setResult(resultado);
-    addSimulation(resultado);
+const resultado = {
+  origem: origin,
+  destino: destination,
+  distancia: Math.round(distancia),
+  co2,
+  combustivel,
+  tempo,
+  data: new Date().toISOString()
+};
+
+   setResult(resultado);
+
+
+fetch("http://localhost:3000/simulation", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`
+  },
+  body: JSON.stringify(resultado)
+})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("Salvo no banco:", data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+addSimulation(resultado);
   };
 
   return (
