@@ -1,12 +1,31 @@
 import svgPaths from "../../imports/svg-hfd06lx9tq";
+import { useNavigate } from "react-router";
 
 function Icon() {
   return (
-    <div className="relative shrink-0 size-[32px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-        <g id="Icon">
-          <path d={svgPaths.p1e821000} id="Vector" stroke="var(--stroke-0, white)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.66667" />
-          <path d={svgPaths.p32206a80} id="Vector_2" stroke="var(--stroke-0, white)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.66667" />
+    <div className="relative shrink-0 size-8">
+      <svg
+        className="absolute inset-0 size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 32 32"
+      >
+        <g>
+          <path
+            d={svgPaths.p1e821000}
+            stroke="white"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.66667"
+          />
+
+          <path
+            d={svgPaths.p32206a80}
+            stroke="white"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.66667"
+          />
         </g>
       </svg>
     </div>
@@ -14,32 +33,73 @@ function Icon() {
 }
 
 export default function Header() {
+
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+  const nomeUsuario = user?.nome || "Usuário";
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
-    <div className="bg-gradient-to-r from-[#00a63e] h-[80.571px] relative shrink-0 to-[#096] w-full" data-name="Header">
-      <div aria-hidden="true" className="absolute border-[#008236] border-b-[0.571px] border-solid inset-0 pointer-events-none" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[0.571px] pt-[16px] px-[16px] md:px-[32px] relative size-full">
-        <div className="h-[48px] relative shrink-0 w-full">
-          <div className="flex flex-row items-center size-full">
-            <div className="content-stretch flex items-center justify-between relative size-full">
-              <div className="h-[48px] relative shrink-0 w-[182.402px]">
-                <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[12px] items-center relative size-full">
-                  <Icon />
-                  <div className="flex-[1_0_0] h-[48px] min-w-px relative">
-                    <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-                      <div className="h-[28px] relative shrink-0 w-full">
-                        <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[24px] md:leading-[28px] left-0 not-italic text-[18px] md:text-[20px] text-white top-[-1.43px] whitespace-nowrap">Carbon Defuse</p>
-                      </div>
-                      <div className="h-[20px] relative shrink-0 w-full hidden md:block">
-                        <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[20px] left-0 not-italic text-[#dcfce7] text-[14px] top-[-0.43px] whitespace-nowrap">by Taggy</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <header className="w-full bg-gradient-to-r from-[#00a63e] to-[#009966] border-b border-[#008236] shadow-sm">
+
+      <div className="h-20 px-6 md:px-8 flex items-center">
+
+        {/* LOGO */}
+        <div className="flex items-center gap-3">
+
+          <Icon />
+
+          <div>
+            <h1 className="text-white font-bold text-[22px] leading-none">
+              Carbon Defuse
+            </h1>
+
+            <p className="text-[#dcfce7] text-sm mt-1">
+              by Taggy
+            </p>
           </div>
+
         </div>
+
+        {/* USUÁRIO */}
+        <div className="ml-auto flex items-center gap-4 bg-white/10 px-5 py-2 rounded-2xl backdrop-blur-sm">
+
+          {/* FOTO */}
+          <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-lg shrink-0">
+            {nomeUsuario.charAt(0).toUpperCase()}
+          </div>
+
+          {/* INFO */}
+          <div className="flex flex-col leading-tight min-w-max">
+
+            <span className="text-white font-semibold text-sm whitespace-nowrap">
+              {nomeUsuario}
+            </span>
+
+            <span className="text-[#dcfce7] text-xs whitespace-nowrap">
+              Usuário logado
+            </span>
+
+          </div>
+
+          {/* SAIR */}
+          <button
+            onClick={handleLogout}
+            className="text-white text-sm font-medium hover:text-red-200 transition-colors"
+          >
+            Sair
+          </button>
+
+        </div>
+
       </div>
-    </div>
+
+    </header>
   );
 }

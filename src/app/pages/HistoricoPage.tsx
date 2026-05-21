@@ -1,9 +1,35 @@
 import PageLayout from "../components/PageLayout";
-import { useImpact } from "../context/ImpactContext";
-
+import { useEffect, useState } from "react";
 export default function HistoricoPage() {
-  const { history } = useImpact();
+  const [history, setHistory] = useState<any[]>([]);
+  useEffect(() => {
 
+  const carregarSimulacoes = async () => {
+    try {
+
+      const token = localStorage.getItem("token");
+
+      const response = await fetch(
+        "http://localhost:3000/simulation",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      setHistory(data);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  carregarSimulacoes();
+
+}, []);
   return (
     <PageLayout>
       <div className="flex-1 relative w-full overflow-y-auto">
@@ -45,16 +71,17 @@ export default function HistoricoPage() {
                   )}
 
                   {history
-                    .slice()
-                    .sort(
-                      (a, b) =>
-                        new Date(b.data).getTime() -
-                        new Date(a.data).getTime()
-                    )
-                    .map((item, index) => {
-                      const date = new Date(item.data);
+                        .slice()
+                        .sort(
+                          (a, b) =>
+                            new Date(b.createdAt).getTime() -
+                            new Date(a.createdAt).getTime()
+                        )
+                        .map((item, index) => {
 
-                      return (
+                          const date = new Date(item.createdAt);
+
+                          return (
                         <div
                           key={index}
                           className="p-5 hover:bg-gray-50 transition-colors"

@@ -1,9 +1,40 @@
 import PageLayout from "../components/PageLayout";
-import { useImpact } from "../context/ImpactContext";
 
+import { useEffect, useState } from "react";
 export default function ComparacaoPage() {
 
-  const { history } = useImpact();
+
+  const [history, setHistory] = useState<any[]>([]);
+
+  useEffect(() => {
+
+    const carregarSimulacoes = async () => {
+      try {
+
+        const token = localStorage.getItem("token");
+
+        const response = await fetch(
+          "http://localhost:3000/simulation",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const data = await response.json();
+
+        setHistory(data);
+
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    carregarSimulacoes();
+
+  }, []);
+
 
   // SOMA TOTAL
   const totalCO2 = history.reduce((acc, item) => acc + item.co2, 0);

@@ -28,17 +28,9 @@ const handleLogin = async (e: React.FormEvent) => {
       return;
     }
 
+    localStorage.setItem("isAuthenticated", "true");
     localStorage.setItem("token", data.token);
-
-    localStorage.setItem(
-      "user",
-      JSON.stringify(data.user)
-    );
-
-    localStorage.setItem(
-      "isAuthenticated",
-      "true"
-    );
+    localStorage.setItem("user", JSON.stringify(data.user));
 
     alert("Login realizado com sucesso!");
 
