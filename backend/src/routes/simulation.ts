@@ -26,7 +26,10 @@ router.post("/simulation", async (req, res) => {
       distancia,
       co2,
       combustivel,
-      tempo
+      tempo,
+      tipo,
+      veiculo,
+      quantidadeVeiculos,
     } = req.body;
 
     const simulation = await prisma.simulation.create({
@@ -37,8 +40,13 @@ router.post("/simulation", async (req, res) => {
         co2,
         combustivel,
         tempo,
-        userId: decoded.id
-      }
+    
+        tipo,
+        veiculo,
+        quantidadeVeiculos,
+    
+        userId: decoded.id,
+      },
     });
 
     return res.json(simulation);

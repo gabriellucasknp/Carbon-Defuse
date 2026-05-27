@@ -29,7 +29,11 @@ useEffect(() => {
 
       const data = await response.json();
 
-      setHistory(data);
+      const fisicas = data.filter(
+        (s: any) => s.tipo === "fisica"
+      );
+      
+      setHistory(fisicas);
 
     } catch (error) {
       console.log(error);

@@ -8,37 +8,49 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  nome     String
-  email    String   @unique
-  senha    String
-  viagens  Trip[]
+  id          Int          @id @default(autoincrement())
+  nome        String
+  email       String       @unique
+  senha       String
+
+  viagens     Trip[]
   simulations Simulation[]
 }
-model Simulation {
-  id           Int      @id @default(autoincrement())
-  origem       String
-  destino      String
-  distancia    Float
-  co2          Float
-  combustivel  Float
-  tempo        Float
-  createdAt    DateTime @default(now())
 
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
+model Simulation {
+  id                  Int      @id @default(autoincrement())
+
+  origem              String
+  destino             String
+
+  distancia           Float
+  co2                 Float
+  combustivel         Float
+  tempo               Float
+
+  tipo                String   @default("fisica")
+  quantidadeVeiculos  Int      @default(1)
+  veiculo             String   @default("compact")
+
+  createdAt           DateTime @default(now())
+
+  userId              Int
+  user                User @relation(fields: [userId], references: [id])
 }
 
 model Trip {
   id            Int      @id @default(autoincrement())
+
   origem        String
   destino       String
+
   distancia     Float
   co2           Float
   combustivel   Float
   tempo         Float
+
   createdAt     DateTime @default(now())
 
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
+  userId        Int
+  user          User @relation(fields: [userId], references: [id])
 }

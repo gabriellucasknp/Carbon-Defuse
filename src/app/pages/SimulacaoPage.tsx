@@ -32,222 +32,478 @@ const locais: any = [
   { nome: "Tocantins", lat: -10.1753, lng: -48.2982 }
 ];
 
-const calcularDistancia = (origem: any, destino: any) => {
+const calcularDistancia = (
+  origem: any,
+  destino: any
+) => {
   const R = 6371;
-  const dLat = ((destino.lat - origem.lat) * Math.PI) / 180;
-  const dLng = ((destino.lng - origem.lng) * Math.PI) / 180;
+
+  const dLat =
+    ((destino.lat - origem.lat) *
+      Math.PI) /
+    180;
+
+  const dLng =
+    ((destino.lng - origem.lng) *
+      Math.PI) /
+    180;
 
   const a =
     Math.sin(dLat / 2) ** 2 +
-    Math.cos((origem.lat * Math.PI) / 180) *
-      Math.cos((destino.lat * Math.PI) / 180) *
+    Math.cos(
+      (origem.lat * Math.PI) /
+        180
+    ) *
+      Math.cos(
+        (destino.lat *
+          Math.PI) /
+          180
+      ) *
       Math.sin(dLng / 2) ** 2;
 
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const c =
+    2 *
+    Math.atan2(
+      Math.sqrt(a),
+      Math.sqrt(1 - a)
+    );
+
   return R * c;
 };
 
 export default function SimulacaoPage() {
-  const [origin, setOrigin] = useState("");
-  const [destination, setDestination] = useState("");
-  const [vehicleType, setVehicleType] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const [origin, setOrigin] =
+    useState("");
 
-  const [showOriginList, setShowOriginList] = useState(false);
-  const [showDestinationList, setShowDestinationList] = useState(false);
+  const [
+    destination,
+    setDestination
+  ] = useState("");
 
-  const { addSimulation } = useImpact();
+  const [
+    vehicleType,
+    setVehicleType
+  ] = useState("");
 
-  const filtrar = (texto: string) =>
+  const [
+    simulationType,
+    setSimulationType
+  ] = useState("fisica");
+
+  const [
+    fleetQuantity,
+    setFleetQuantity
+  ] = useState(1);
+
+  const [result, setResult] =
+    useState<any>(null);
+
+  const [
+    showOriginList,
+    setShowOriginList
+  ] = useState(false);
+
+  const [
+    showDestinationList,
+    setShowDestinationList
+  ] = useState(false);
+
+  const { addSimulation } =
+    useImpact();
+
+  const filtrar = (
+    texto: string
+  ) =>
     locais.filter((l: any) =>
-      l.nome.toLowerCase().includes(texto.toLowerCase())
+      l.nome
+        .toLowerCase()
+        .includes(
+          texto.toLowerCase()
+        )
     );
 
-  const handleCalcular = () => {
-    const origemObj = locais.find((l: any) => l.nome === origin);
-    const destinoObj = locais.find((l: any) => l.nome === destination);
+  const handleCalcular =
+    async () => {
+      const origemObj =
+        locais.find(
+          (l: any) =>
+            l.nome === origin
+        );
 
-    if (!origemObj || !destinoObj || !vehicleType) {
-      alert("Selecione opções válidas");
-      return;
-    }
+      const destinoObj =
+        locais.find(
+          (l: any) =>
+            l.nome ===
+            destination
+        );
 
-    const distancia = calcularDistancia(origemObj, destinoObj);
-    const tempo = (distancia / 80) * 60;
+      if (
+        !origemObj ||
+        !destinoObj ||
+        !vehicleType
+      ) {
+        alert(
+          "Selecione opções válidas"
+        );
+        return;
+      }
 
-    const consumoPorKm: any = {
-      sedan: 0.06,
-      suv: 0.08,
-      pickup: 0.1,
-      compact: 0.05
+      const distancia =
+        calcularDistancia(
+          origemObj,
+          destinoObj
+        );
+
+      const tempo =
+        (distancia / 80) * 60;
+
+      const consumoPorKm: any =
+        {
+          sedan: 0.06,
+          suv: 0.08,
+          pickup: 0.1,
+          compact: 0.05
+        };
+
+      const combustivelBase =
+        distancia *
+        consumoPorKm[
+          vehicleType
+        ];
+
+      const co2Base =
+        combustivelBase * 2.3;
+
+      const multiplicador =
+        simulationType ===
+        "corporativa"
+          ? fleetQuantity
+          : 1;
+
+      const combustivel =
+        combustivelBase *
+        multiplicador;
+
+      const co2 =
+        co2Base *
+        multiplicador;
+
+      const resultado = {
+        origem: origin,
+        destino: destination,
+        distancia:
+          Math.round(
+            distancia
+          ),
+
+        co2,
+        combustivel,
+        tempo,
+
+        tipo:
+          simulationType,
+
+        quantidadeVeiculos:
+          simulationType ===
+          "corporativa"
+            ? fleetQuantity
+            : 1,
+
+        veiculo:
+          vehicleType,
+
+        data:
+          new Date().toISOString()
+      };
+
+      setResult(resultado);
+
+      const token =
+        localStorage.getItem(
+          "token"
+        );
+
+      try {
+        const response =
+          await fetch(
+            "http://localhost:3000/simulation",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type":
+                  "application/json",
+                Authorization: `Bearer ${token}`
+              },
+              body: JSON.stringify(
+                resultado
+              )
+            }
+          );
+
+        const data =
+          await response.json();
+
+        console.log(
+          "Salvo no banco:",
+          data
+        );
+
+        addSimulation(
+          resultado
+        );
+      } catch (err) {
+        console.error(err);
+      }
     };
-
- const combustivel = distancia * consumoPorKm[vehicleType];
-const co2 = combustivel * 2.3;
-
-const token = localStorage.getItem("token");
-
-const resultado = {
-  origem: origin,
-  destino: destination,
-  distancia: Math.round(distancia),
-  co2,
-  combustivel,
-  tempo,
-  data: new Date().toISOString()
-};
-
-   setResult(resultado);
-
-
-fetch("http://localhost:3000/simulation", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`
-  },
-  body: JSON.stringify(resultado)
-})
-  .then((res) => res.json())
-  .then((data) => {
-    console.log("Salvo no banco:", data);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-
-addSimulation(resultado);
-  };
 
   return (
     <PageLayout>
       <div className="max-w-3xl mx-auto p-6">
         <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100 space-y-5">
+
           <div>
             <h1 className="text-3xl font-bold text-gray-800">
               Simulação de Rota
             </h1>
+
             <p className="text-gray-500 mt-1">
-              Calcule distância, consumo e emissão de CO₂
+              Calcule distância,
+              consumo e emissão
+              de CO₂
             </p>
           </div>
 
+          {/* TIPO */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-3">
+              Tipo de simulação
+            </label>
+
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() =>
+                  setSimulationType(
+                    "fisica"
+                  )
+                }
+                className={`flex-1 p-4 rounded-xl font-semibold transition ${
+                  simulationType ===
+                  "fisica"
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                Pessoa Física
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setSimulationType(
+                    "corporativa"
+                  )
+                }
+                className={`flex-1 p-4 rounded-xl font-semibold transition ${
+                  simulationType ===
+                  "corporativa"
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                Corporativa
+              </button>
+            </div>
+          </div>
+
           {/* ORIGEM */}
-          <div className="relative">
-            <input
-              value={origin}
-              onChange={(e) => {
-                setOrigin(e.target.value);
-                setShowOriginList(true);
-              }}
-              onBlur={() =>
-                setTimeout(() => setShowOriginList(false), 100)
-              }
-              placeholder="Cidade de origem"
-              className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
-            />
+<div className="relative">
+  <input
+    value={origin}
+    onChange={(e) => {
+      setOrigin(e.target.value);
+      setShowOriginList(true);
+    }}
+    onBlur={() =>
+      setTimeout(
+        () => setShowOriginList(false),
+        100
+      )
+    }
+    placeholder="Cidade de origem"
+    className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
+  />
 
-            {showOriginList && origin && (
-              <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
-                {filtrar(origin).map((l: any) => (
-                  <div
-                    key={l.nome}
-                    onClick={() => {
-                      setOrigin(l.nome);
-                      setShowOriginList(false);
-                    }}
-                    className="px-4 py-3 hover:bg-green-50 cursor-pointer transition"
-                  >
-                    {l.nome}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* DESTINO */}
-          <div className="relative">
-            <input
-              value={destination}
-              onChange={(e) => {
-                setDestination(e.target.value);
-                setShowDestinationList(true);
-              }}
-              onBlur={() =>
-                setTimeout(() => setShowDestinationList(false), 100)
-              }
-              placeholder="Cidade de destino"
-              className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
-            />
-
-            {showDestinationList && destination && (
-              <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
-                {filtrar(destination).map((l: any) => (
-                  <div
-                    key={l.nome}
-                    onClick={() => {
-                      setDestination(l.nome);
-                      setShowDestinationList(false);
-                    }}
-                    className="px-4 py-3 hover:bg-green-50 cursor-pointer transition"
-                  >
-                    {l.nome}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* VEÍCULO */}
-          <select
-            value={vehicleType}
-            onChange={(e) => setVehicleType(e.target.value)}
-            className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
+  {showOriginList && origin && (
+    <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
+      {filtrar(origin).map(
+        (l: any) => (
+          <div
+            key={l.nome}
+            onClick={() => {
+              setOrigin(l.nome);
+              setShowOriginList(
+                false
+              );
+            }}
+            className="px-4 py-3 hover:bg-green-50 cursor-pointer transition"
           >
-            <option value="">Tipo de veículo</option>
-            <option value="sedan">Sedan</option>
-            <option value="suv">SUV</option>
-            <option value="pickup">Caminhonete</option>
-            <option value="compact">Compacto</option>
-          </select>
+            {l.nome}
+          </div>
+        )
+      )}
+    </div>
+  )}
+</div>
 
-          {/* BOTÃO */}
+{/* DESTINO */}
+<div className="relative">
+  <input
+    value={destination}
+    onChange={(e) => {
+      setDestination(
+        e.target.value
+      );
+      setShowDestinationList(
+        true
+      );
+    }}
+    onBlur={() =>
+      setTimeout(
+        () =>
+          setShowDestinationList(
+            false
+          ),
+        100
+      )
+    }
+    placeholder="Cidade de destino"
+    className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
+  />
+
+  {showDestinationList &&
+    destination && (
+      <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
+        {filtrar(
+          destination
+        ).map((l: any) => (
+          <div
+            key={l.nome}
+            onClick={() => {
+              setDestination(
+                l.nome
+              );
+              setShowDestinationList(
+                false
+              );
+            }}
+            className="px-4 py-3 hover:bg-green-50 cursor-pointer transition"
+          >
+            {l.nome}
+          </div>
+        ))}
+      </div>
+    )}
+</div>
+
+{/* VEÍCULO */}
+<select
+  value={vehicleType}
+  onChange={(e) =>
+    setVehicleType(
+      e.target.value
+    )
+  }
+  className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:ring-2 focus:ring-green-500 transition"
+>
+  <option value="">
+    Tipo de veículo
+  </option>
+
+  <option value="sedan">
+    Sedan
+  </option>
+
+  <option value="suv">
+    SUV
+  </option>
+
+  <option value="pickup">
+    Caminhonete
+  </option>
+
+  <option value="compact">
+    Compacto
+  </option>
+</select>
+
+          {/* QUANTIDADE */}
+          {simulationType ===
+            "corporativa" && (
+            <input
+              type="number"
+              min={1}
+              value={
+                fleetQuantity
+              }
+              onChange={(e) =>
+                setFleetQuantity(
+                  Number(
+                    e.target.value
+                  )
+                )
+              }
+              placeholder="Quantidade de veículos"
+              className="w-full border border-gray-300 rounded-xl p-4"
+            />
+          )}
+
           <button
-            onClick={handleCalcular}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold p-4 rounded-xl shadow-md transition duration-300"
+            onClick={
+              handleCalcular
+            }
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold p-4 rounded-xl"
           >
             Calcular Impacto
           </button>
 
-          {/* RESULTADO */}
           {result && (
-            <div className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-2xl p-6 shadow-lg grid md:grid-cols-2 gap-4">
-              <div className="bg-white/10 p-4 rounded-xl">
-                <p className="text-sm opacity-80">Distância</p>
-                <p className="text-2xl font-bold">
-                  {result.distancia} km
-                </p>
+            <div className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-2xl p-6 grid md:grid-cols-2 gap-4">
+
+              <div>
+                Distância:
+                {" "}
+                {
+                  result.distancia
+                }
+                km
               </div>
 
-              <div className="bg-white/10 p-4 rounded-xl">
-                <p className="text-sm opacity-80">CO₂ Emitido</p>
-                <p className="text-2xl font-bold">
-                  {result.co2.toFixed(2)} kg
-                </p>
+              <div>
+                CO₂:
+                {" "}
+                {result.co2.toFixed(
+                  2
+                )}
+                kg
               </div>
 
-              <div className="bg-white/10 p-4 rounded-xl">
-                <p className="text-sm opacity-80">Combustível</p>
-                <p className="text-2xl font-bold">
-                  {result.combustivel.toFixed(2)} L
-                </p>
+              <div>
+                Combustível:
+                {" "}
+                {result.combustivel.toFixed(
+                  2
+                )}
+                L
               </div>
 
-              <div className="bg-white/10 p-4 rounded-xl">
-                <p className="text-sm opacity-80">Tempo</p>
-                <p className="text-2xl font-bold">
-                  {result.tempo.toFixed(0)} min
-                </p>
+              <div>
+                Tempo:
+                {" "}
+                {result.tempo.toFixed(
+                  0
+                )}
+                min
               </div>
             </div>
           )}
