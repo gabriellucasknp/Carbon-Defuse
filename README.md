@@ -1,5 +1,6 @@
 
-🌿 Carbon Defuse
+🌿 Carbon Defuse <img width="463" height="463" alt="image" src="https://github.com/user-attachments/assets/804996da-c484-4b34-9fb4-d134da2c132d" />
+
 Calculadora inteligente de impacto ambiental integrada à Taggy, que transforma a economia de CO₂ invisível em dados claros e tangíveis.
 Projeto desenvolvido pelo Grupo 5 — Sistemas de Informação · CESAR School (2026.1)
 🔗 Site do projeto (Google Sites) · 🎨 Figma · 📋 Trello
