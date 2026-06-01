@@ -182,7 +182,8 @@ http://localhost:3000
 
 | Entrega    | Foco                                                | Link                               |
 | ---------- | --------------------------------------------------- | ---------------------------------- |
-| Entrega 03 | Novas histórias implementadas + testes de sistema   | **Em andamento** |
+| Entrega 03 | Novas histórias implementadas + testes de sistema   | 
+ **https://www.loom.com/share/ea465ea16c464d9e9664791bc43fab5d** |
 | Entrega 04 | Novas histórias + deploy com URL aparecendo na tela | **Em andamento** |
 
 ---
