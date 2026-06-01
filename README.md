@@ -182,8 +182,8 @@ http://localhost:3000
 
 | Entrega    | Foco                                                | Link                               |
 | ---------- | --------------------------------------------------- | ---------------------------------- |
-| Entrega 03 | Novas histórias implementadas + testes de sistema   | **[ADICIONAR LINK DO SCREENCAST]** |
-| Entrega 04 | Novas histórias + deploy com URL aparecendo na tela | **[ADICIONAR LINK DO SCREENCAST]** |
+| Entrega 03 | Novas histórias implementadas + testes de sistema   | **Em andamento** |
+| Entrega 04 | Novas histórias + deploy com URL aparecendo na tela | **Em andamento** |
 
 ---
 
