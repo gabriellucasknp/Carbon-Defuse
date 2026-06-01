@@ -214,3 +214,161 @@ Ferramentas de gestão: Trello (tarefas) · Figma (prototipação) · Google She
 Carbon Defuse · CESAR School · Sistemas de Informação 2026.1
 
 Tornando visível o impacto ambiental que já existe. 🌱
+Status das entregas
+Entrega 1 (Backlog + Histórias de Usuário no padrão 3Cs + diagramas): Concluída
+Entrega 2 (Protótipos Lo-Fi + Screencast): Concluída
+Screencast: 
+Protótipos Lo-Fi: (registrar/linkar aqui caso exista um arquivo ou tarefa específica)
+Entrega 3 (Implementação de 3 Histórias) - em andamento..
+Entrega 4 (Implementação de 6 Histórias em andamento..
+
+
+
+
+
+1) 🚗 Calcular viagem
+Card
+Como usuário, quero inserir origem, destino e veículo para calcular custo da viagem.
+Conversation
+Entradas: origem, destino, veículo.
+Validações: campos obrigatórios; formato/endereço válido; veículo selecionado.
+Cálculos/consultas: rota, pedágios, distância.
+Saída: custo total da viagem.
+
+Confirmation (critérios de aceite)
+Dado origem, destino e veículo válidos, o sistema exibe o custo total da viagem.
+Se algum dado estiver inválido, o sistema exibe mensagem de erro clara e permite correção.
+
+
+
+
+2) ⛽ Estimar combustível
+Card
+Como usuário, quero ver o custo estimado de combustível para planejar gastos.
+Conversation
+Entradas: distância, tipo de combustível, consumo médio (km/l), preço do combustível.
+Cálculos: litros necessários, custo total.
+Saídas: custo estimado, litros necessários, sugestão de postos na rota (se aplicável).
+
+Confirmation (critérios de aceite)
+Com entradas válidas, o sistema exibe litros necessários e custo estimado.
+O resultado é consistente com a fórmula (distância ÷ consumo) × preço.
+
+
+
+
+
+
+3) 💳 Comparar com/sem Taggy
+Card
+Como usuário, quero comparar custos para entender a economia.
+Conversation
+Entradas: rota e veículo.
+O sistema calcula 2 cenários: sem Taggy e com Taggy.
+Deve comparar: valor em pedágios e impacto no tempo (paradas/filas).
+
+Confirmation (critérios de aceite)
+O sistema exibe um comparativo lado a lado com total sem Taggy e total com Taggy.
+
+
+
+
+4) ⏱️ Economia de tempo
+Card
+Como usuário, quero visualizar tempo economizado em pedágios.
+Conversation
+Entradas: rota.
+O sistema identifica pedágios e estima tempo médio de fila.
+Saídas: tempo poupado por viagem, por mês e por ano.
+
+Confirmation (critérios de aceite)
+O sistema mostra o total de tempo perdido sem Taggy e tempo poupado com Taggy.
+
+
+
+
+5) 📅 Simulação mensal
+Card
+Como usuário, quero simular meus gastos mensais com viagens.
+Conversation
+Entradas: viagens recorrentes, frequência, rotas.
+O sistema multiplica custos pela frequência e consolida.
+Saídas: gasto mensal, economia mensal, projeção anual.
+
+Confirmation (critérios de aceite)
+O sistema exibe resumo com gasto total do mês, economia com Taggy e projeção anual.
+
+
+
+
+
+6) 🏢 Modo empresa
+Card
+Como empresa, quero inserir frota e rotas para calcular custos totais.
+Conversation
+Entradas: frota, rotas, frequência.
+O sistema calcula por veículo e agrega totais.
+Saídas: custo por veículo, custo total, economia potencial, ranking de rotas.
+
+Confirmation (critérios de aceite)
+O painel exibe indicadores gerenciais com consolidação por frota e por veículo.
+
+
+
+
+7) 📊 Visualização gráfica
+Card
+Como usuário, quero ver gráficos para entender os dados facilmente.
+Conversation
+Entradas: dados vindos de cálculos/simulações.
+Tipos: rosca (distribuição), barras (com vs sem), linha (evolução), mapa (rota/pedágios).
+
+Confirmation (critérios de aceite)
+O sistema renderiza visualizações e permite leitura clara dos principais números.
+
+
+
+
+
+8) 🌱 Impacto ambiental
+Card
+Como usuário, quero ver redução de CO₂ para entender impacto ambiental.
+Conversation
+Entradas: rota, veículo, combustível.
+O sistema estima emissão (g/km), distância e impactos de filas.
+Saídas: redução estimada de CO2 e equivalência (árvores).
+
+Confirmation (critérios de aceite)
+O sistema apresenta emissão estimada e uma redução (comparativo com vs sem Taggy).
+
+
+
+
+
+9) 💾 Salvar simulações
+Card
+Como usuário, quero salvar cálculos para consultar depois.
+Conversation
+Requer autenticação.
+Ações: salvar com nome, listar histórico, visualizar/editar/excluir/compartilhar.
+
+Confirmation (critérios de aceite)
+Usuário autenticado consegue salvar e reencontrar a simulação no histórico.
+Usuário não autenticado é direcionado a login e, após autenticar, consegue concluir o salvamento.
+
+
+
+
+
+10) 📄 Relatórios automáticos
+Card
+Como empresa, quero gerar relatórios para tomada de decisão.
+Conversation
+Entradas: período e escopo.
+Conteúdo: gráficos, resumo de custos, impacto ambiental, comparativos.
+Exportação: PDF, Excel/CSV e envio automático por e-mail.
+
+Confirmation (critérios de aceite)
+O sistema gera relatório com os blocos definidos e permite exportação (PDF e CSV/Excel).
+
+
