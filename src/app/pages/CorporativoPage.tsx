@@ -42,29 +42,26 @@ export default function CorporativoPage() {
       (acc, item) => acc + (item.quantidadeVeiculos || 1),
       0
     );
-
+  
     const totalCo2 = simulacoes.reduce(
       (acc, item) => acc + (item.co2 || 0),
       0
     );
-
+  
     const totalCombustivel = simulacoes.reduce(
       (acc, item) => acc + (item.combustivel || 0),
       0
     );
-
-    const passagens = simulacoes.length;
-
-    const getQuantidadePorTipo = (tipo: string) => {
-      return simulacoes
-        .filter((s) => s.veiculo === tipo)
-        .reduce(
-          (acc, item) =>
-            acc + (item.quantidadeVeiculos || 1),
-          0
-        );
-    };
-
+  
+    const totalDistancia = simulacoes.reduce(
+      (acc, item) => acc + (item.distancia || 0),
+      0
+    );
+  
+    const totalTempo = simulacoes.reduce(
+      (acc, item) => acc + (item.tempo || 0),
+      0
+    );
     const meses = [
       "Jan",
       "Fev",
@@ -79,50 +76,56 @@ export default function CorporativoPage() {
       "Nov",
       "Dez",
     ];
-
-    const evolucaoMensal = meses.map((mes, index) => ({
-      mes,
-      valor: simulacoes
-        .filter(
-          (s: any) =>
-            new Date(s.data).getMonth() === index
-        )
+    
+    const evolucaoMensal = meses.map(
+      (mes, index) => ({
+        mes,
+        valor: simulacoes
+          .filter(
+            (s: any) =>
+              new Date(
+                s.createdAt || s.data
+              ).getMonth() === index
+          )
+          .reduce(
+            (acc, item) =>
+              acc + (item.co2 || 0),
+            0
+          ),
+      })
+    );
+    const economiaFinanceira =
+      totalCombustivel * 6.25;
+  
+    const passagens = simulacoes.length;
+  
+    const getQuantidadePorTipo = (
+      tipo: string
+    ) =>
+      simulacoes
+        .filter((s) => s.veiculo === tipo)
         .reduce(
-          (acc, item) => acc + (item.co2 || 0),
+          (acc, item) =>
+            acc + (item.quantidadeVeiculos || 1),
           0
-        ),
-    }));
-
-    const mediaMensal =
-      simulacoes.length > 0
-        ? totalCo2 / simulacoes.length
-        : 0;
-
+        );
+  
     return {
-      totalVeiculos,
-
-      co2: `${totalCo2.toFixed(1)} kg`,
-
-      combustivel: `${totalCombustivel.toFixed(1)} L`,
-
-      mediaMensal: `${mediaMensal.toFixed(1)} kg`,
-
-      crescimento: "+12%",
-
-      tempoReduzido: `${(
-        passagens * 12
-      ).toFixed(0)} min/mês`,
-
-      passagens,
-
+        totalVeiculos,
+        totalCo2,
+        totalCombustivel,
+        totalDistancia,
+        totalTempo,
+        economiaFinanceira,
+        passagens,
+        evolucaoMensal,
+  
       distribuicao: {
         sedan: getQuantidadePorTipo("sedan"),
         suv: getQuantidadePorTipo("suv"),
         pickup: getQuantidadePorTipo("pickup"),
         compact: getQuantidadePorTipo("compact"),
       },
-
-      evolucaoMensal,
     };
   }, [simulacoes]);
 
@@ -155,64 +158,175 @@ export default function CorporativoPage() {
           </div>
 
           {/* CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
 
-            <div className="rounded-3xl p-6 border border-purple-100 bg-gradient-to-br from-[#faf5ff] to-[#fdf2f8] shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 rounded-2xl bg-purple-100 mb-4 flex items-center justify-center">
-                🚘
-              </div>
+<div className="bg-white rounded-3xl p-6 shadow-sm border">
+  <p className="text-sm text-gray-500">
+    Veículos Monitorados
+  </p>
 
-              <p className="text-sm text-[#667085]">
-                Total de Veículos
-              </p>
+  <h2 className="text-4xl font-bold mt-2">
+    {reportData.totalVeiculos}
+  </h2>
 
-              <h2 className="text-4xl font-bold text-[#101828] mt-2">
-                {reportData.totalVeiculos}
-              </h2>
+  <p className="text-green-600 mt-2">
+    Frota ativa
+  </p>
+</div>
 
-              <p className="text-sm text-[#9810fa] mt-2">
-                Frota ativa
-              </p>
-            </div>
+<div className="bg-white rounded-3xl p-6 shadow-sm border">
+  <p className="text-sm text-gray-500">
+    Emissões CO₂
+  </p>
 
-            <div className="rounded-3xl p-6 border border-green-100 bg-gradient-to-br from-[#f0fdf4] to-[#ecfdf5] shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 rounded-2xl bg-green-100 mb-4 flex items-center justify-center">
-                🌱
-              </div>
+  <h2 className="text-4xl font-bold mt-2">
+    {reportData.totalCo2.toFixed(1)} kg
+  </h2>
 
-              <p className="text-sm text-[#667085]">
-                CO₂ evitado no mês
-              </p>
+  <p className="text-green-600 mt-2">
+    Indicador ESG
+  </p>
+</div>
 
-              <h2 className="text-4xl font-bold text-[#101828] mt-2">
-                {reportData.co2}
-              </h2>
+<div className="bg-white rounded-3xl p-6 shadow-sm border">
+  <p className="text-sm text-gray-500">
+    Combustível
+  </p>
 
-              <p className="text-sm text-[#00a63e] mt-2">
-                ↑ 15% vs mês anterior
-              </p>
-            </div>
+  <h2 className="text-4xl font-bold mt-2">
+    {reportData.totalCombustivel.toFixed(1)} L
+  </h2>
 
-            <div className="rounded-3xl p-6 border border-blue-100 bg-gradient-to-br from-[#eff6ff] to-[#ecfeff] shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 mb-4 flex items-center justify-center">
-                ⛽
-              </div>
+  <p className="text-blue-600 mt-2">
+    Consumo total
+  </p>
+</div>
 
-              <p className="text-sm text-[#667085]">
-                Combustível economizado
-              </p>
+<div className="bg-white rounded-3xl p-6 shadow-sm border">
+  <p className="text-sm text-gray-500">
+    Economia Financeira
+  </p>
 
-              <h2 className="text-4xl font-bold text-[#101828] mt-2">
-                {reportData.combustivel}
-              </h2>
+  <h2 className="text-4xl font-bold mt-2">
+    R$ {reportData.economiaFinanceira.toFixed(0)}
+  </h2>
 
-              <p className="text-sm text-[#2563eb] mt-2">
-                Economia total
-              </p>
-            </div>
+  <p className="text-purple-600 mt-2">
+    Estimativa
+  </p>
+</div>
 
-          </div>
+</div>
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8"></div>
+<div className="bg-white rounded-3xl p-6 shadow-sm border">
+  <h2 className="text-xl font-bold mb-5">
+    Resumo Executivo
+  </h2>
 
+  <div className="space-y-4">
+
+    <div className="flex justify-between">
+      <span>Simulações</span>
+
+      <strong>
+        {reportData.passagens}
+      </strong>
+    </div>
+
+    <div className="flex justify-between">
+      <span>Distância percorrida</span>
+
+      <strong>
+        {reportData.totalDistancia.toFixed(0)} km
+      </strong>
+    </div>
+
+    <div className="flex justify-between">
+      <span>Tempo total</span>
+
+      <strong>
+        {(reportData.totalTempo / 60).toFixed(1)} h
+      </strong>
+    </div>
+
+    <div className="flex justify-between">
+      <span>Economia estimada</span>
+
+      <strong className="text-green-600">
+        R$ {reportData.economiaFinanceira.toFixed(2)}
+      </strong>
+    </div>
+
+  </div>
+</div>
+<div className="bg-white rounded-3xl p-6 shadow-sm border">
+  <h2 className="text-xl font-bold mb-5">
+    Distribuição da Frota
+  </h2>
+
+  <div className="space-y-4">
+
+    <div className="flex justify-between">
+      <span>🚗 Sedan</span>
+      <strong>{reportData.distribuicao.sedan}</strong>
+    </div>
+
+    <div className="flex justify-between">
+      <span>🚙 SUV</span>
+      <strong>{reportData.distribuicao.suv}</strong>
+    </div>
+
+    <div className="flex justify-between">
+      <span>🛻 Pickup</span>
+      <strong>{reportData.distribuicao.pickup}</strong>
+    </div>
+
+    <div className="flex justify-between">
+      <span>🚘 Compacto</span>
+      <strong>{reportData.distribuicao.compact}</strong>
+    </div>
+
+  </div>
+</div> 
+        <div className="bg-white rounded-3xl p-6 shadow-sm border mb-8">
+  <h2 className="text-xl font-bold mb-5">
+    Indicadores ESG
+  </h2>
+
+  <div className="grid md:grid-cols-3 gap-5">
+
+    <div className="bg-green-50 rounded-2xl p-5">
+      <p className="text-sm text-green-700">
+        Sustentabilidade
+      </p>
+
+      <h3 className="text-3xl font-bold mt-2">
+        87%
+      </h3>
+    </div>
+
+    <div className="bg-blue-50 rounded-2xl p-5">
+      <p className="text-sm text-blue-700">
+        Eficiência Operacional
+      </p>
+
+      <h3 className="text-3xl font-bold mt-2">
+        92%
+      </h3>
+    </div>
+
+    <div className="bg-purple-50 rounded-2xl p-5">
+      <p className="text-sm text-purple-700">
+        Meta ESG
+      </p>
+
+      <h3 className="text-3xl font-bold mt-2">
+        74%
+      </h3>
+    </div>
+
+  </div>
+</div>
           {/* BOTÃO PDF */}
           <div className="flex justify-center mt-10">
             <button
