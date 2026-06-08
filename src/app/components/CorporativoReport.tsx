@@ -5,7 +5,20 @@ import {
   View,
   StyleSheet,
 } from "@react-pdf/renderer";
+import { Navigate } from "react-router";
 
+export default function CorporativoPage() {
+
+  const user = JSON.parse(
+    localStorage.getItem("user") || "{}"
+  );
+
+  if (user.tipo !== "corporativa") {
+    return <Navigate to="/" replace />;
+  }
+
+  // resto da página
+}
 const styles = StyleSheet.create({
   page: {
     paddingTop: 35,

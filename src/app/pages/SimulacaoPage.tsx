@@ -85,10 +85,6 @@ export default function SimulacaoPage() {
     setVehicleType
   ] = useState("");
 
-  const [
-    simulationType,
-    setSimulationType
-  ] = useState("fisica");
 
   const [
     fleetQuantity,
@@ -111,6 +107,18 @@ export default function SimulacaoPage() {
   const { addSimulation } =
     useImpact();
 
+const user = JSON.parse(
+  localStorage.getItem("user") || "{}"
+);
+
+const tipoUsuario = user?.tipo || "fisica";
+
+const [simulationType, setSimulationType] =
+  useState(
+    tipoUsuario === "corporativa"
+      ? "corporativa"
+      : "fisica"
+  );
   const filtrar = (
     texto: string
   ) =>
@@ -273,40 +281,40 @@ return (
             </p>
           </div>
 
-          {/* TIPO */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              Tipo de simulação
-            </label>
+{/* TIPO - APENAS PARA CORPORATIVO */}
+{tipoUsuario === "corporativa" && (
+  <div>
+    <label className="block text-sm font-semibold text-gray-700 mb-3">
+      Tipo de simulação
+    </label>
 
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={() => setSimulationType("fisica")}
-                className={`flex-1 p-4 rounded-xl font-semibold transition ${
-                  simulationType === "fisica"
-                    ? "bg-green-600 text-white"
-                    : "bg-gray-100 text-gray-700"
-                }`}
-              >
-                Pessoa Física
-              </button>
+    <div className="flex gap-3">
+      <button
+        type="button"
+        onClick={() => setSimulationType("fisica")}
+        className={`flex-1 p-4 rounded-xl font-semibold transition ${
+          simulationType === "fisica"
+            ? "bg-green-600 text-white"
+            : "bg-gray-100 text-gray-700"
+        }`}
+      >
+        Pessoa Física
+      </button>
 
-              <button
-                type="button"
-                onClick={() =>
-                  setSimulationType("corporativa")
-                }
-                className={`flex-1 p-4 rounded-xl font-semibold transition ${
-                  simulationType === "corporativa"
-                    ? "bg-green-600 text-white"
-                    : "bg-gray-100 text-gray-700"
-                }`}
-              >
-                Corporativa
-              </button>
-            </div>
-          </div>
+      <button
+        type="button"
+        onClick={() => setSimulationType("corporativa")}
+        className={`flex-1 p-4 rounded-xl font-semibold transition ${
+          simulationType === "corporativa"
+            ? "bg-green-600 text-white"
+            : "bg-gray-100 text-gray-700"
+        }`}
+      >
+        Corporativa
+      </button>
+    </div>
+  </div>
+)}
 
           {/* ORIGEM */}
           <div className="relative">

@@ -2,14 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 export default function CadastroPage() {
-  const [formData, setFormData] = useState({
-    nome: "",
-    email: "",
-    empresa: "",
-    telefone: "",
-    senha: "",
-    confirmarSenha: ""
-  });
+ const [formData, setFormData] = useState({
+  nome: "",
+  email: "",
+  empresa: "",
+  telefone: "",
+  senha: "",
+  confirmarSenha: "",
+  tipo: "fisica"
+});
   const navigate = useNavigate();
 
  const handleSubmit = async (e: React.FormEvent) => {
@@ -26,11 +27,12 @@ export default function CadastroPage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        nome: formData.nome,
-        email: formData.email,
-        senha: formData.senha,
-      }),
+     body: JSON.stringify({
+  nome: formData.nome,
+  email: formData.email,
+  senha: formData.senha,
+  tipo: formData.tipo
+}),
     });
 
     const data = await response.json();
@@ -134,8 +136,33 @@ export default function CadastroPage() {
                 className="w-full h-[44px] border-[#d1d5dc] border-[1.5px] rounded-lg px-4 font-['Inter:Regular',sans-serif] text-[14px] focus:border-[#00a63e] focus:outline-none transition-colors"
               />
             </div>
+            
           </div>
+            <div>
+  <label className="block font-semibold text-[14px] text-[#101828] mb-2">
+    Tipo de Conta
+  </label>
 
+  <select
+    name="tipo"
+    value={formData.tipo}
+    onChange={(e) =>
+      setFormData({
+        ...formData,
+        tipo: e.target.value
+      })
+    }
+    className="w-full h-[44px] border-[#d1d5dc] border-[1.5px] rounded-lg px-4 focus:border-[#00a63e] focus:outline-none"
+  >
+    <option value="fisica">
+      Pessoa Física
+    </option>
+
+    <option value="corporativa">
+      Corporativa
+    </option>
+  </select>
+</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block font-['Inter:Semi_Bold',sans-serif] font-semibold text-[14px] text-[#101828] mb-2">
