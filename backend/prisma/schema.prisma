@@ -13,6 +13,7 @@ model User {
   email       String       @unique
   senha       String
 
+  tipo     String @default("fisica")
   viagens     Trip[]
   simulations Simulation[]
 }

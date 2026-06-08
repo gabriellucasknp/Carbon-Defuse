@@ -11,18 +11,15 @@ const JWT_SECRET = "taggy_secret";
 
 // CADASTRO
 router.post("/register", async (req, res) => {
+  const { nome, email, senha, tipo } = req.body;
 
-  const { nome, email, senha } = req.body;
-
-  const userExists = await prisma.user.findUnique({
-    where: {
-      email,
-    },
+  const existe = await prisma.user.findUnique({
+    where: { email }
   });
 
-  if (userExists) {
+  if (existe) {
     return res.status(400).json({
-      error: "Usuário já existe",
+      error: "Usuário já existe"
     });
   }
 
@@ -33,7 +30,8 @@ router.post("/register", async (req, res) => {
       nome,
       email,
       senha: senhaHash,
-    },
+      tipo
+    }
   });
 
   return res.json(user);
@@ -42,46 +40,52 @@ router.post("/register", async (req, res) => {
 
 // LOGIN
 router.post("/login", async (req, res) => {
+  try {
+    const { email, senha } = req.body;
 
-  const { email, senha } = req.body;
-
-  const user = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-
-  if (!user) {
-    return res.status(400).json({
-      error: "Usuário não encontrado",
+    const user = await prisma.user.findUnique({
+      where: { email }
     });
-  }
 
-  const senhaCorreta = await bcrypt.compare(
-    senha,
-    user.senha
-  );
+    if (!user) {
+      return res.status(400).json({
+        error: "Usuário não encontrado"
+      });
+    }
 
-  if (!senhaCorreta) {
-    return res.status(400).json({
-      error: "Senha incorreta",
-    });
-  }
+    const senhaCorreta = await bcrypt.compare(
+      senha,
+      user.senha
+    );
+
+    if (!senhaCorreta) {
+      return res.status(400).json({
+        error: "Senha incorreta"
+      });
+    }
 
   const token = jwt.sign(
-    {
-      id: user.id,
-    },
-    JWT_SECRET,
-    {
-      expiresIn: "7d",
-    }
-  );
+  {
+    id: user.id,
+    tipo: user.tipo
+  },
+  JWT_SECRET,
+  {
+    expiresIn: "7d"
+  }
+);
 
-  return res.json({
-    token,
-    user,
-  });
+    return res.json({
+      token,
+      user
+    });
+
+  } catch (error) {
+    console.error("ERRO LOGIN:", error);
+
+    return res.status(500).json({
+      error: "Erro interno"
+    });
+  }
 });
-
 export default router;
