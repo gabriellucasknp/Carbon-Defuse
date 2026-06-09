@@ -12,7 +12,7 @@ Projeto desenvolvido pelo **Grupo 5 — Sistemas de Informação · CESAR School
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react\&logoColor=white)](#)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript\&logoColor=white)](#)
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite\&logoColor=white)](#)
-[![Status](https://img.shields.io/badge/Status-Entrega%2003%20em%20finalização-f4b400)](#)
+
 
 </div>
 
