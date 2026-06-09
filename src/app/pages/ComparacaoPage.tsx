@@ -1,6 +1,7 @@
 import PageLayout from "../components/PageLayout";
 import { useEffect, useState } from "react";
 import { API_URL } from "../../lib/api";
+import { Check, X } from "lucide-react";
 export default function ComparacaoPage() {
 
 
@@ -120,8 +121,8 @@ export default function ComparacaoPage() {
                         {co2ComTaggy.toFixed(1)} kg
                       </p>
 
-                      <p className="text-[#00a63e] text-[12px]">
-                        ✓ Menor emissão
+                      <p className="text-[#00a63e] text-[12px] flex items-center gap-1">
+                        <Check className="w-3 h-3" /> Menor emissão
                       </p>
                     </div>
 
@@ -134,8 +135,8 @@ export default function ComparacaoPage() {
                         {tempoComTaggy} min
                       </p>
 
-                      <p className="text-[#00a63e] text-[12px]">
-                        ✓ Mais rápido
+                      <p className="text-[#00a63e] text-[12px] flex items-center gap-1">
+                        <Check className="w-3 h-3" /> Mais rápido
                       </p>
                     </div>
 
@@ -148,8 +149,8 @@ export default function ComparacaoPage() {
                         {combustivelComTaggy.toFixed(1)} L
                       </p>
 
-                      <p className="text-[#00a63e] text-[12px]">
-                        ✓ Economia de combustível
+                      <p className="text-[#00a63e] text-[12px] flex items-center gap-1">
+                        <Check className="w-3 h-3" /> Economia de combustível
                       </p>
                     </div>
 
@@ -184,8 +185,8 @@ export default function ComparacaoPage() {
                         {co2SemTaggy.toFixed(1)} kg
                       </p>
 
-                      <p className="text-[#e7000b] text-[12px]">
-                        ✗ Maior emissão
+                      <p className="text-[#e7000b] text-[12px] flex items-center gap-1">
+                        <X className="w-3 h-3" /> Maior emissão
                       </p>
                     </div>
 
@@ -198,8 +199,8 @@ export default function ComparacaoPage() {
                         {tempoSemTaggy} min
                       </p>
 
-                      <p className="text-[#e7000b] text-[12px]">
-                        ✗ Tempo perdido
+                      <p className="text-[#e7000b] text-[12px] flex items-center gap-1">
+                        <X className="w-3 h-3" /> Tempo perdido
                       </p>
                     </div>
 
@@ -212,8 +213,8 @@ export default function ComparacaoPage() {
                         {combustivelSemTaggy.toFixed(1)} L
                       </p>
 
-                      <p className="text-[#e7000b] text-[12px]">
-                        ✗ Maior consumo
+                      <p className="text-[#e7000b] text-[12px] flex items-center gap-1">
+                        <X className="w-3 h-3" /> Maior consumo
                       </p>
                     </div>
 

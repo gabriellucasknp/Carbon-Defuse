@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import PageLayout from "../components/PageLayout";
 import { API_URL } from "../../lib/api";
 import { CorporativoReport } from "../components/CorporativoReport";
+import { Car, CarFront, Truck } from "lucide-react";
 
 export default function CorporativoPage() {
   const [simulacoes, setSimulacoes] = useState<any[]>([]);
@@ -267,22 +268,22 @@ export default function CorporativoPage() {
             <div className="space-y-4">
 
               <div className="flex justify-between">
-                <span>🚗 Sedan</span>
+                <span className="flex items-center gap-2"><Car className="w-4 h-4" /> Sedan</span>
                 <strong>{reportData.distribuicao.sedan}</strong>
               </div>
 
               <div className="flex justify-between">
-                <span>🚙 SUV</span>
+                <span className="flex items-center gap-2"><CarFront className="w-4 h-4" /> SUV</span>
                 <strong>{reportData.distribuicao.suv}</strong>
               </div>
 
               <div className="flex justify-between">
-                <span>🛻 Pickup</span>
+                <span className="flex items-center gap-2"><Truck className="w-4 h-4" /> Pickup</span>
                 <strong>{reportData.distribuicao.pickup}</strong>
               </div>
 
               <div className="flex justify-between">
-                <span>🚘 Compacto</span>
+                <span className="flex items-center gap-2"><Car className="w-4 h-4" /> Compacto</span>
                 <strong>{reportData.distribuicao.compact}</strong>
               </div>
 

@@ -11,7 +11,7 @@ import { ImpactProvider } from "./context/ImpactContext";
 
 export default function App() {
   return (
-    <ImpactProvider> {/* 👈 AQUI */}
+    <ImpactProvider>
       <BrowserRouter>
         <div className="size-full bg-white">
           <Routes>

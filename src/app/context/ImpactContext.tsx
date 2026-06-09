@@ -20,13 +20,13 @@ const ImpactContext = createContext({} as ImpactContextType);
 export const ImpactProvider = ({ children }: any) => {
   const [history, setHistory] = useState<Simulation[]>([]);
 
-  // 🔥 carregar do localStorage
+  // carregar do localStorage
   useEffect(() => {
     const saved = localStorage.getItem("impact_history");
     if (saved) setHistory(JSON.parse(saved));
   }, []);
 
-  // 🔥 salvar no localStorage
+  // salvar no localStorage
   useEffect(() => {
     localStorage.setItem("impact_history", JSON.stringify(history));
   }, [history]);

@@ -2,6 +2,7 @@ import PageLayout from "../components/PageLayout";
 import { useState } from "react";
 import { useImpact } from "../context/ImpactContext";
 import { API_URL } from "../../lib/api";
+import { MapPin, Fuel, Leaf, Building2 } from "lucide-react";
 
 const locais: any = [
   { nome: "Acre", lat: -9.0238, lng: -70.812 },
@@ -477,8 +478,8 @@ export default function SimulacaoPage() {
             <div className="space-y-5 text-gray-600">
 
               <div>
-                <h3 className="font-semibold text-green-600 mb-2">
-                  📍 Distância
+                <h3 className="font-semibold text-green-600 mb-2 flex items-center gap-2">
+                  <MapPin className="w-4 h-4" /> Distância
                 </h3>
 
                 <p>
@@ -490,8 +491,8 @@ export default function SimulacaoPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-green-600 mb-2">
-                  ⛽ Consumo de combustível
+                <h3 className="font-semibold text-green-600 mb-2 flex items-center gap-2">
+                  <Fuel className="w-4 h-4" /> Consumo de combustível
                 </h3>
 
                 <ul className="space-y-1">
@@ -503,8 +504,8 @@ export default function SimulacaoPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-green-600 mb-2">
-                  🌱 Emissão de CO₂
+                <h3 className="font-semibold text-green-600 mb-2 flex items-center gap-2">
+                  <Leaf className="w-4 h-4" /> Emissão de CO₂
                 </h3>
 
                 <p>
@@ -514,8 +515,8 @@ export default function SimulacaoPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-green-600 mb-2">
-                  🏢 Simulação corporativa
+                <h3 className="font-semibold text-green-600 mb-2 flex items-center gap-2">
+                  <Building2 className="w-4 h-4" /> Simulação corporativa
                 </h3>
 
                 <p>
