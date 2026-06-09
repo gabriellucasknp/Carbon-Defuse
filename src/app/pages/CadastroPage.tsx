@@ -1,58 +1,59 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { API_URL } from "../../lib/api";
 
 export default function CadastroPage() {
- const [formData, setFormData] = useState({
-  nome: "",
-  email: "",
-  empresa: "",
-  telefone: "",
-  senha: "",
-  confirmarSenha: "",
-  tipo: "fisica"
-});
+  const [formData, setFormData] = useState({
+    nome: "",
+    email: "",
+    empresa: "",
+    telefone: "",
+    senha: "",
+    confirmarSenha: "",
+    tipo: "fisica"
+  });
   const navigate = useNavigate();
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  if (formData.senha !== formData.confirmarSenha) {
-    alert("As senhas não coincidem!");
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:3000/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-     body: JSON.stringify({
-  nome: formData.nome,
-  email: formData.email,
-  senha: formData.senha,
-  tipo: formData.tipo
-}),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      alert(data.error || "Erro ao cadastrar");
+    if (formData.senha !== formData.confirmarSenha) {
+      alert("As senhas não coincidem!");
       return;
     }
 
-    localStorage.setItem("isAuthenticated", "true");
-    localStorage.setItem("user", JSON.stringify(data));
+    try {
+      const response = await fetch(`${API_URL}/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: formData.nome,
+          email: formData.email,
+          senha: formData.senha,
+          tipo: formData.tipo
+        }),
+      });
 
-    alert("Conta criada com sucesso!");
+      const data = await response.json();
 
-    
-  } catch (error) {
-    console.error(error);
-    alert("Erro ao conectar com servidor");
-  }
-};
+      if (!response.ok) {
+        alert(data.error || "Erro ao cadastrar");
+        return;
+      }
+
+      localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("user", JSON.stringify(data));
+
+      alert("Conta criada com sucesso!");
+
+
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao conectar com servidor");
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -67,8 +68,8 @@ export default function CadastroPage() {
         <div className="flex flex-col items-center mb-8">
           <div className="size-16 bg-gradient-to-r from-[#00a63e] to-[#096] rounded-full flex items-center justify-center mb-4">
             <svg className="size-8" fill="none" viewBox="0 0 32 32">
-              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12z"/>
-              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 10.667v8L20 22"/>
+              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12z" />
+              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 10.667v8L20 22" />
             </svg>
           </div>
           <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] text-[#101828] mb-2">Criar Conta</h1>
@@ -136,33 +137,33 @@ export default function CadastroPage() {
                 className="w-full h-[44px] border-[#d1d5dc] border-[1.5px] rounded-lg px-4 font-['Inter:Regular',sans-serif] text-[14px] focus:border-[#00a63e] focus:outline-none transition-colors"
               />
             </div>
-            
+
           </div>
-            <div>
-  <label className="block font-semibold text-[14px] text-[#101828] mb-2">
-    Tipo de Conta
-  </label>
+          <div>
+            <label className="block font-semibold text-[14px] text-[#101828] mb-2">
+              Tipo de Conta
+            </label>
 
-  <select
-    name="tipo"
-    value={formData.tipo}
-    onChange={(e) =>
-      setFormData({
-        ...formData,
-        tipo: e.target.value
-      })
-    }
-    className="w-full h-[44px] border-[#d1d5dc] border-[1.5px] rounded-lg px-4 focus:border-[#00a63e] focus:outline-none"
-  >
-    <option value="fisica">
-      Pessoa Física
-    </option>
+            <select
+              name="tipo"
+              value={formData.tipo}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  tipo: e.target.value
+                })
+              }
+              className="w-full h-[44px] border-[#d1d5dc] border-[1.5px] rounded-lg px-4 focus:border-[#00a63e] focus:outline-none"
+            >
+              <option value="fisica">
+                Pessoa Física
+              </option>
 
-    <option value="corporativa">
-      Corporativa
-    </option>
-  </select>
-</div>
+              <option value="corporativa">
+                Corporativa
+              </option>
+            </select>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block font-['Inter:Semi_Bold',sans-serif] font-semibold text-[14px] text-[#101828] mb-2">

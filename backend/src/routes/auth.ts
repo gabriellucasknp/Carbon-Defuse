@@ -6,7 +6,7 @@ import { prisma } from "../lib/prisma";
 
 const router = Router();
 
-const JWT_SECRET = "taggy_secret";
+const JWT_SECRET = process.env.JWT_SECRET || "taggy_secret_dev";
 
 
 // CADASTRO
@@ -64,16 +64,16 @@ router.post("/login", async (req, res) => {
       });
     }
 
-  const token = jwt.sign(
-  {
-    id: user.id,
-    tipo: user.tipo
-  },
-  JWT_SECRET,
-  {
-    expiresIn: "7d"
-  }
-);
+    const token = jwt.sign(
+      {
+        id: user.id,
+        tipo: user.tipo
+      },
+      JWT_SECRET,
+      {
+        expiresIn: "7d"
+      }
+    );
 
     return res.json({
       token,

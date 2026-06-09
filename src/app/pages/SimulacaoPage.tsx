@@ -1,6 +1,7 @@
 import PageLayout from "../components/PageLayout";
 import { useState } from "react";
 import { useImpact } from "../context/ImpactContext";
+import { API_URL } from "../../lib/api";
 
 const locais: any = [
   { nome: "Acre", lat: -9.0238, lng: -70.812 },
@@ -52,14 +53,14 @@ const calcularDistancia = (
     Math.sin(dLat / 2) ** 2 +
     Math.cos(
       (origem.lat * Math.PI) /
-        180
+      180
     ) *
-      Math.cos(
-        (destino.lat *
-          Math.PI) /
-          180
-      ) *
-      Math.sin(dLng / 2) ** 2;
+    Math.cos(
+      (destino.lat *
+        Math.PI) /
+      180
+    ) *
+    Math.sin(dLng / 2) ** 2;
 
   const c =
     2 *
@@ -107,18 +108,18 @@ export default function SimulacaoPage() {
   const { addSimulation } =
     useImpact();
 
-const user = JSON.parse(
-  localStorage.getItem("user") || "{}"
-);
-
-const tipoUsuario = user?.tipo || "fisica";
-
-const [simulationType, setSimulationType] =
-  useState(
-    tipoUsuario === "corporativa"
-      ? "corporativa"
-      : "fisica"
+  const user = JSON.parse(
+    localStorage.getItem("user") || "{}"
   );
+
+  const tipoUsuario = user?.tipo || "fisica";
+
+  const [simulationType, setSimulationType] =
+    useState(
+      tipoUsuario === "corporativa"
+        ? "corporativa"
+        : "fisica"
+    );
   const filtrar = (
     texto: string
   ) =>
@@ -166,17 +167,17 @@ const [simulationType, setSimulationType] =
         (distancia / 80) * 60;
 
       const consumoPorKm: any =
-        {
-          sedan: 0.06,
-          suv: 0.08,
-          pickup: 0.1,
-          compact: 0.05
-        };
+      {
+        sedan: 0.06,
+        suv: 0.08,
+        pickup: 0.1,
+        compact: 0.05
+      };
 
       const combustivelBase =
         distancia *
         consumoPorKm[
-          vehicleType
+        vehicleType
         ];
 
       const co2Base =
@@ -184,7 +185,7 @@ const [simulationType, setSimulationType] =
 
       const multiplicador =
         simulationType ===
-        "corporativa"
+          "corporativa"
           ? fleetQuantity
           : 1;
 
@@ -213,7 +214,7 @@ const [simulationType, setSimulationType] =
 
         quantidadeVeiculos:
           simulationType ===
-          "corporativa"
+            "corporativa"
             ? fleetQuantity
             : 1,
 
@@ -234,7 +235,7 @@ const [simulationType, setSimulationType] =
       try {
         const response =
           await fetch(
-            "http://localhost:3000/simulation",
+            `${API_URL}/simulation`,
             {
               method: "POST",
               headers: {
@@ -263,292 +264,291 @@ const [simulationType, setSimulationType] =
         console.error(err);
       }
     };
-return (
-  <PageLayout>
-    <div className="max-w-7xl mx-auto p-6">
-      <div className="grid lg:grid-cols-2 gap-8 items-start">
+  return (
+    <PageLayout>
+      <div className="max-w-7xl mx-auto p-6">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
 
-        {/* FORMULÁRIO */}
-        <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100 space-y-5">
+          {/* FORMULÁRIO */}
+          <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100 space-y-5">
 
-          <div>
-            <h1 className="text-3xl font-bold text-gray-800">
-              Simulação de Rota
-            </h1>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">
+                Simulação de Rota
+              </h1>
 
-            <p className="text-gray-500 mt-1">
-              Calcule distância, consumo e emissão de CO₂
-            </p>
-          </div>
+              <p className="text-gray-500 mt-1">
+                Calcule distância, consumo e emissão de CO₂
+              </p>
+            </div>
 
-{/* TIPO - APENAS PARA CORPORATIVO */}
-{tipoUsuario === "corporativa" && (
-  <div>
-    <label className="block text-sm font-semibold text-gray-700 mb-3">
-      Tipo de simulação
-    </label>
+            {/* TIPO - APENAS PARA CORPORATIVO */}
+            {tipoUsuario === "corporativa" && (
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  Tipo de simulação
+                </label>
 
-    <div className="flex gap-3">
-      <button
-        type="button"
-        onClick={() => setSimulationType("fisica")}
-        className={`flex-1 p-4 rounded-xl font-semibold transition ${
-          simulationType === "fisica"
-            ? "bg-green-600 text-white"
-            : "bg-gray-100 text-gray-700"
-        }`}
-      >
-        Pessoa Física
-      </button>
-
-      <button
-        type="button"
-        onClick={() => setSimulationType("corporativa")}
-        className={`flex-1 p-4 rounded-xl font-semibold transition ${
-          simulationType === "corporativa"
-            ? "bg-green-600 text-white"
-            : "bg-gray-100 text-gray-700"
-        }`}
-      >
-        Corporativa
-      </button>
-    </div>
-  </div>
-)}
-
-          {/* ORIGEM */}
-          <div className="relative">
-            <input
-              value={origin}
-              onChange={(e) => {
-                setOrigin(e.target.value);
-                setShowOriginList(true);
-              }}
-              onBlur={() =>
-                setTimeout(
-                  () => setShowOriginList(false),
-                  100
-                )
-              }
-              placeholder="Cidade de origem"
-              className="w-full border border-gray-300 rounded-xl p-4"
-            />
-
-            {showOriginList && origin && (
-              <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
-                {filtrar(origin).map((l: any) => (
-                  <div
-                    key={l.nome}
-                    onClick={() => {
-                      setOrigin(l.nome);
-                      setShowOriginList(false);
-                    }}
-                    className="px-4 py-3 hover:bg-green-50 cursor-pointer"
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setSimulationType("fisica")}
+                    className={`flex-1 p-4 rounded-xl font-semibold transition ${simulationType === "fisica"
+                        ? "bg-green-600 text-white"
+                        : "bg-gray-100 text-gray-700"
+                      }`}
                   >
-                    {l.nome}
+                    Pessoa Física
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setSimulationType("corporativa")}
+                    className={`flex-1 p-4 rounded-xl font-semibold transition ${simulationType === "corporativa"
+                        ? "bg-green-600 text-white"
+                        : "bg-gray-100 text-gray-700"
+                      }`}
+                  >
+                    Corporativa
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* ORIGEM */}
+            <div className="relative">
+              <input
+                value={origin}
+                onChange={(e) => {
+                  setOrigin(e.target.value);
+                  setShowOriginList(true);
+                }}
+                onBlur={() =>
+                  setTimeout(
+                    () => setShowOriginList(false),
+                    100
+                  )
+                }
+                placeholder="Cidade de origem"
+                className="w-full border border-gray-300 rounded-xl p-4"
+              />
+
+              {showOriginList && origin && (
+                <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
+                  {filtrar(origin).map((l: any) => (
+                    <div
+                      key={l.nome}
+                      onClick={() => {
+                        setOrigin(l.nome);
+                        setShowOriginList(false);
+                      }}
+                      className="px-4 py-3 hover:bg-green-50 cursor-pointer"
+                    >
+                      {l.nome}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* DESTINO */}
+            <div className="relative">
+              <input
+                value={destination}
+                onChange={(e) => {
+                  setDestination(e.target.value);
+                  setShowDestinationList(true);
+                }}
+                onBlur={() =>
+                  setTimeout(
+                    () =>
+                      setShowDestinationList(false),
+                    100
+                  )
+                }
+                placeholder="Cidade de destino"
+                className="w-full border border-gray-300 rounded-xl p-4"
+              />
+
+              {showDestinationList &&
+                destination && (
+                  <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
+                    {filtrar(destination).map(
+                      (l: any) => (
+                        <div
+                          key={l.nome}
+                          onClick={() => {
+                            setDestination(l.nome);
+                            setShowDestinationList(
+                              false
+                            );
+                          }}
+                          className="px-4 py-3 hover:bg-green-50 cursor-pointer"
+                        >
+                          {l.nome}
+                        </div>
+                      )
+                    )}
                   </div>
-                ))}
+                )}
+            </div>
+
+            {/* VEÍCULO */}
+            <select
+              value={vehicleType}
+              onChange={(e) =>
+                setVehicleType(e.target.value)
+              }
+              className="w-full border border-gray-300 rounded-xl p-4"
+            >
+              <option value="">
+                Tipo de veículo
+              </option>
+              <option value="sedan">
+                Sedan
+              </option>
+              <option value="suv">
+                SUV
+              </option>
+              <option value="pickup">
+                Caminhonete
+              </option>
+              <option value="compact">
+                Compacto
+              </option>
+            </select>
+
+            {simulationType ===
+              "corporativa" && (
+                <input
+                  type="number"
+                  min={1}
+                  value={fleetQuantity}
+                  onChange={(e) =>
+                    setFleetQuantity(
+                      Number(e.target.value)
+                    )
+                  }
+                  placeholder="Quantidade de veículos"
+                  className="w-full border border-gray-300 rounded-xl p-4"
+                />
+              )}
+
+            <button
+              onClick={handleCalcular}
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold p-4 rounded-xl"
+            >
+              Calcular Impacto
+            </button>
+
+            {result && (
+              <div className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-2xl p-6 grid md:grid-cols-2 gap-4">
+                <div>
+                  Distância: {result.distancia} km
+                </div>
+
+                <div>
+                  CO₂: {result.co2.toFixed(2)}
+                  kg
+                </div>
+
+                <div>
+                  Combustível:{" "}
+                  {result.combustivel.toFixed(2)}
+                  L
+                </div>
+
+                <div>
+                  Tempo:{" "}
+                  {result.tempo.toFixed(0)}
+                  min
+                </div>
               </div>
             )}
           </div>
 
-          {/* DESTINO */}
-          <div className="relative">
-            <input
-              value={destination}
-              onChange={(e) => {
-                setDestination(e.target.value);
-                setShowDestinationList(true);
-              }}
-              onBlur={() =>
-                setTimeout(
-                  () =>
-                    setShowDestinationList(false),
-                  100
-                )
-              }
-              placeholder="Cidade de destino"
-              className="w-full border border-gray-300 rounded-xl p-4"
-            />
+          {/* EXPLICAÇÃO DO CÁLCULO */}
+          <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100 sticky top-6">
 
-            {showDestinationList &&
-              destination && (
-                <div className="absolute z-10 w-full mt-2 bg-white border rounded-xl shadow-lg max-h-44 overflow-auto">
-                  {filtrar(destination).map(
-                    (l: any) => (
-                      <div
-                        key={l.nome}
-                        onClick={() => {
-                          setDestination(l.nome);
-                          setShowDestinationList(
-                            false
-                          );
-                        }}
-                        className="px-4 py-3 hover:bg-green-50 cursor-pointer"
-                      >
-                        {l.nome}
-                      </div>
-                    )
-                  )}
-                </div>
-              )}
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Como calculamos o impacto?
+            </h2>
+
+            <div className="space-y-5 text-gray-600">
+
+              <div>
+                <h3 className="font-semibold text-green-600 mb-2">
+                  📍 Distância
+                </h3>
+
+                <p>
+                  Utilizamos a fórmula de Haversine para
+                  calcular a distância entre os estados
+                  selecionados utilizando latitude e
+                  longitude.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-green-600 mb-2">
+                  ⛽ Consumo de combustível
+                </h3>
+
+                <ul className="space-y-1">
+                  <li>• Sedan: 0,10 L/km</li>
+                  <li>• SUV: 0,08 L/km</li>
+                  <li>• Caminhonete: 0,10 L/km</li>
+                  <li>• Compacto: 0,05 L/km</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-green-600 mb-2">
+                  🌱 Emissão de CO₂
+                </h3>
+
+                <p>
+                  Cada litro de combustível consumido
+                  gera aproximadamente 2,3 kg de CO₂.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-green-600 mb-2">
+                  🏢 Simulação corporativa
+                </h3>
+
+                <p>
+                  Os resultados são multiplicados pela
+                  quantidade de veículos da frota,
+                  permitindo visualizar o impacto total
+                  da operação.
+                </p>
+              </div>
+
+              <div className="bg-green-50 p-4 rounded-xl border border-green-100">
+                <h3 className="font-semibold text-green-700 mb-2">
+                  Fórmulas utilizadas
+                </h3>
+
+                <p>
+                  Combustível = Distância × Consumo/km
+                </p>
+
+                <p>
+                  CO₂ = Combustível × 2,3
+                </p>
+
+                <p>
+                  Tempo = Distância ÷ 80 km/h
+                </p>
+              </div>
+
+            </div>
           </div>
 
-          {/* VEÍCULO */}
-          <select
-            value={vehicleType}
-            onChange={(e) =>
-              setVehicleType(e.target.value)
-            }
-            className="w-full border border-gray-300 rounded-xl p-4"
-          >
-            <option value="">
-              Tipo de veículo
-            </option>
-            <option value="sedan">
-              Sedan
-            </option>
-            <option value="suv">
-              SUV
-            </option>
-            <option value="pickup">
-              Caminhonete
-            </option>
-            <option value="compact">
-              Compacto
-            </option>
-          </select>
-
-          {simulationType ===
-            "corporativa" && (
-            <input
-              type="number"
-              min={1}
-              value={fleetQuantity}
-              onChange={(e) =>
-                setFleetQuantity(
-                  Number(e.target.value)
-                )
-              }
-              placeholder="Quantidade de veículos"
-              className="w-full border border-gray-300 rounded-xl p-4"
-            />
-          )}
-
-          <button
-            onClick={handleCalcular}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold p-4 rounded-xl"
-          >
-            Calcular Impacto
-          </button>
-
-          {result && (
-            <div className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-2xl p-6 grid md:grid-cols-2 gap-4">
-              <div>
-                Distância: {result.distancia} km
-              </div>
-
-              <div>
-                CO₂: {result.co2.toFixed(2)}
-                kg
-              </div>
-
-              <div>
-                Combustível:{" "}
-                {result.combustivel.toFixed(2)}
-                L
-              </div>
-
-              <div>
-                Tempo:{" "}
-                {result.tempo.toFixed(0)}
-                min
-              </div>
-            </div>
-          )}
         </div>
-
-        {/* EXPLICAÇÃO DO CÁLCULO */}
-        <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100 sticky top-6">
-
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Como calculamos o impacto?
-          </h2>
-
-          <div className="space-y-5 text-gray-600">
-
-            <div>
-              <h3 className="font-semibold text-green-600 mb-2">
-                📍 Distância
-              </h3>
-
-              <p>
-                Utilizamos a fórmula de Haversine para
-                calcular a distância entre os estados
-                selecionados utilizando latitude e
-                longitude.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-green-600 mb-2">
-                ⛽ Consumo de combustível
-              </h3>
-
-              <ul className="space-y-1">
-                <li>• Sedan: 0,10 L/km</li>
-                <li>• SUV: 0,08 L/km</li>
-                <li>• Caminhonete: 0,10 L/km</li>
-                <li>• Compacto: 0,05 L/km</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-green-600 mb-2">
-                🌱 Emissão de CO₂
-              </h3>
-
-              <p>
-                Cada litro de combustível consumido
-                gera aproximadamente 2,3 kg de CO₂.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-green-600 mb-2">
-                🏢 Simulação corporativa
-              </h3>
-
-              <p>
-                Os resultados são multiplicados pela
-                quantidade de veículos da frota,
-                permitindo visualizar o impacto total
-                da operação.
-              </p>
-            </div>
-
-            <div className="bg-green-50 p-4 rounded-xl border border-green-100">
-              <h3 className="font-semibold text-green-700 mb-2">
-                Fórmulas utilizadas
-              </h3>
-
-              <p>
-                Combustível = Distância × Consumo/km
-              </p>
-
-              <p>
-                CO₂ = Combustível × 2,3
-              </p>
-
-              <p>
-                Tempo = Distância ÷ 80 km/h
-              </p>
-            </div>
-
-          </div>
-        </div>
-
       </div>
-    </div>
-  </PageLayout>
-)}
+    </PageLayout>
+  )
+}

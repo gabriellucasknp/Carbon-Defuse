@@ -1,5 +1,6 @@
 import PageLayout from "../components/PageLayout";
 import { useEffect, useState } from "react";
+import { API_URL } from "../../lib/api";
 import {
   Leaf,
   Fuel,
@@ -11,38 +12,38 @@ import {
 
 export default function DashboardPage() {
   const [history, setHistory] = useState<any[]>([]);
-useEffect(() => {
+  useEffect(() => {
 
-  const carregarSimulacoes = async () => {
-    try {
+    const carregarSimulacoes = async () => {
+      try {
 
-      const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token");
 
-      const response = await fetch(
-        "http://localhost:3000/simulation",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+        const response = await fetch(
+          `${API_URL}/simulation`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      const data = await response.json();
+        const data = await response.json();
 
-      const fisicas = data.filter(
-        (s: any) => s.tipo === "fisica"
-      );
-      
-      setHistory(fisicas);
+        const fisicas = data.filter(
+          (s: any) => s.tipo === "fisica"
+        );
 
-    } catch (error) {
-      console.log(error);
-    }
-  };
+        setHistory(fisicas);
 
-  carregarSimulacoes();
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-}, []);
+    carregarSimulacoes();
+
+  }, []);
   const totalCO2 = history.reduce((acc, item) => acc + item.co2, 0);
 
   const totalCombustivel = history.reduce(

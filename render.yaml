@@ -1,0 +1,44 @@
+# Blueprint do Render — serviço web fullstack único (frontend Vite + backend Express)
+# Documentação: https://render.com/docs/blueprint-spec
+#
+# Sobe um único Web Service que:
+#   1. builda o frontend (Vite -> /dist) e gera o Prisma Client  (render-build.sh)
+#   2. aplica as migrations e inicia o Express, que serve a API + o /dist (render-start.sh)
+
+services:
+  - type: web
+    name: carbon-defuse
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: bash render-build.sh
+    startCommand: bash render-start.sh
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      # Segredo do JWT — o Render gera um valor aleatório seguro automaticamente.
+      - key: JWT_SECRET
+        generateValue: true
+      # Banco SQLite. No plano free o disco é efêmero: os dados são recriados
+      # pelas migrations a cada deploy/restart. Para persistir, veja a seção
+      # "disk" comentada abaixo (requer plano pago).
+      - key: DATABASE_URL
+        value: file:./prisma/prod.db
+      # URL do frontend para CORS — no serviço único é a própria origem.
+      - key: FRONTEND_URL
+        value: ""
+
+    # ---------------------------------------------------------------------
+    # PERSISTÊNCIA DO BANCO (opcional, requer plano pago — ex.: "starter")
+    # Para manter os dados entre deploys:
+    #   1. troque "plan: free" por "plan: starter"
+    #   2. troque o DATABASE_URL acima por: file:/data/prod.db
+    #   3. descomente o bloco abaixo
+    # ---------------------------------------------------------------------
+    # disk:
+    #   name: carbon-defuse-data
+    #   mountPath: /data
+    #   sizeGB: 1

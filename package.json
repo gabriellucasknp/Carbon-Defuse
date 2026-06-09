@@ -3,11 +3,18 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "start": "serve -s dist",
+    "build:full": "npm install && npm run build && cd backend && npm install && npm run build",
+    "start:full": "cd backend && npm start"
   },
   "dependencies": {
+    "serve": "^14.2.4",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "@mui/icons-material": "7.3.5",

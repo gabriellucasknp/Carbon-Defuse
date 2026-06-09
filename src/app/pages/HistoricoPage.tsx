@@ -1,35 +1,36 @@
 import PageLayout from "../components/PageLayout";
 import { useEffect, useState } from "react";
+import { API_URL } from "../../lib/api";
 export default function HistoricoPage() {
   const [history, setHistory] = useState<any[]>([]);
   useEffect(() => {
 
-  const carregarSimulacoes = async () => {
-    try {
+    const carregarSimulacoes = async () => {
+      try {
 
-      const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token");
 
-      const response = await fetch(
-        "http://localhost:3000/simulation",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+        const response = await fetch(
+          `${API_URL}/simulation`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      const data = await response.json();
+        const data = await response.json();
 
-      setHistory(data);
+        setHistory(data);
 
-    } catch (error) {
-      console.log(error);
-    }
-  };
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  carregarSimulacoes();
+    carregarSimulacoes();
 
-}, []);
+  }, []);
   return (
     <PageLayout>
       <div className="flex-1 relative w-full overflow-y-auto">
@@ -71,17 +72,17 @@ export default function HistoricoPage() {
                   )}
 
                   {history
-                        .slice()
-                        .sort(
-                          (a, b) =>
-                            new Date(b.createdAt).getTime() -
-                            new Date(a.createdAt).getTime()
-                        )
-                        .map((item, index) => {
+                    .slice()
+                    .sort(
+                      (a, b) =>
+                        new Date(b.createdAt).getTime() -
+                        new Date(a.createdAt).getTime()
+                    )
+                    .map((item, index) => {
 
-                          const date = new Date(item.createdAt);
+                      const date = new Date(item.createdAt);
 
-                          return (
+                      return (
                         <div
                           key={index}
                           className="p-5 hover:bg-gray-50 transition-colors"

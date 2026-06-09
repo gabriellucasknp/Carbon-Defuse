@@ -1,53 +1,54 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { API_URL } from "../../lib/api";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-const handleLogin = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  try {
-    const response = await fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        senha: password,
-      }),
-    });
+    try {
+      const response = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          senha: password,
+        }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (!response.ok) {
-      alert(data.error || "Erro ao fazer login");
-      return;
+      if (!response.ok) {
+        alert(data.error || "Erro ao fazer login");
+        return;
+      }
+
+      localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      alert("Login realizado com sucesso!");
+
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao conectar ao servidor");
     }
-
-    localStorage.setItem("isAuthenticated", "true");
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
-
-    alert("Login realizado com sucesso!");
-
-    navigate("/");
-  } catch (error) {
-    console.error(error);
-    alert("Erro ao conectar ao servidor");
-  }
-};
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#00a63e] to-[#096] flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
         <div className="flex flex-col items-center mb-8">
           <div className="size-16 bg-gradient-to-r from-[#00a63e] to-[#096] rounded-full flex items-center justify-center mb-4">
             <svg className="size-8" fill="none" viewBox="0 0 32 32">
-              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12z"/>
-              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 10.667v8L20 22"/>
+              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12z" />
+              <path stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.67" d="M16 10.667v8L20 22" />
             </svg>
           </div>
           <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] text-[#101828] mb-2">Carbon Defuse</h1>

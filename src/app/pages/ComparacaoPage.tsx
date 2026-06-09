@@ -1,6 +1,6 @@
 import PageLayout from "../components/PageLayout";
-
 import { useEffect, useState } from "react";
+import { API_URL } from "../../lib/api";
 export default function ComparacaoPage() {
 
 
@@ -14,7 +14,7 @@ export default function ComparacaoPage() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-          "http://localhost:3000/simulation",
+          `${API_URL}/simulation`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

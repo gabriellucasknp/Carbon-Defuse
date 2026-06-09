@@ -184,7 +184,7 @@ http://localhost:3000
 | ---------- | --------------------------------------------------- | ---------------------------------- |
 | Entrega 03 | Novas histórias implementadas + testes de sistema   | 
  **https://www.loom.com/share/ea465ea16c464d9e9664791bc43fab5d** |
-| Entrega 04 | Novas histórias + deploy com URL aparecendo na tela | **Em andamento** |
+| Entrega 04 | [Novas histórias + deploy com URL aparecendo na tela](https://www.loom.com/share/d2733988810243f1afc6e4c0df53b11f) | **Em andamento** |
 
 ---
 
@@ -281,6 +281,8 @@ Durante a Entrega 03, a equipe experimentou programação em par para dividir re
 | Gabriel Lucas + Lucas Nery       | Organização das histórias, revisão do fluxo do usuário, backlog e priorização |
 | Felipe Ulisses + Gabriel Dias    | Integração do back-end, autenticação, rotas e persistência de dados           |
 | Jailson de Souza + Lucas Rogério | Telas do front-end, dashboard, histórico e melhorias visuais                  |
+| Gabriel Lucas + Lucas Nery       | Debug's, testes, restruturação na arquitetura do sistema no geral             |
+
 
 ## Relato da experiência
 
