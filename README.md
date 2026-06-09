@@ -1,8 +1,6 @@
-
 <div align="center">
 
 <img width="220" alt="Carbon Defuse Logo" src="https://github.com/user-attachments/assets/804996da-c484-4b34-9fb4-d134da2c132d" />
-
 # 🌱 Carbon Defuse
 
 **Calculadora inteligente de impacto ambiental integrada à Taggy.**
