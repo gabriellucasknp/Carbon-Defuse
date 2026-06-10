@@ -22,11 +22,12 @@ services:
       # Segredo do JWT — o Render gera um valor aleatório seguro automaticamente.
       - key: JWT_SECRET
         generateValue: true
-      # Banco SQLite. No plano free o disco é efêmero: os dados são recriados
-      # pelas migrations a cada deploy/restart. Para persistir, veja a seção
-      # "disk" comentada abaixo (requer plano pago).
+      # Banco SQLite. Caminho absoluto evita ambiguidade entre o Prisma CLI
+      # (resolve relativo ao CWD) e o PrismaClient gerado (resolve relativo ao
+      # client em node_modules). /tmp é efêmero no free tier — as migrations
+      # recriam o schema a cada deploy/restart. Para persistir, veja "disk".
       - key: DATABASE_URL
-        value: file:./prisma/prod.db
+        value: file:/tmp/prod.db
       # URL do frontend para CORS — no serviço único é a própria origem.
       - key: FRONTEND_URL
         value: ""

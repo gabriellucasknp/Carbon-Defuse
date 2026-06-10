@@ -4,7 +4,7 @@ import { prisma } from "../lib/prisma";
 
 const router = Router();
 
-const JWT_SECRET = "taggy_secret";
+const JWT_SECRET = process.env.JWT_SECRET || "taggy_secret_dev";
 
 router.post("/simulation", async (req, res) => {
   try {
