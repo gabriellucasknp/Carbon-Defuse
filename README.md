@@ -1,117 +1,105 @@
 <div align="center">
+  <img width="220" alt="Logo Carbon Defuse" src="https://github.com/user-attachments/assets/804996da-c484-4b34-9fb4-d134da2c132d">
+</div>
 
-<img width="220" alt="Carbon Defuse Logo" src="https://github.com/user-attachments/assets/804996da-c484-4b34-9fb4-d134da2c132d" />
-# 🌱 Carbon Defuse
+<div align="center">
 
-**Calculadora inteligente de impacto ambiental integrada à Taggy.**
+<img width="220" alt="Logo do Carbon Defuse" src="https://github.com/user-attachments/assets/804996da-c484-4b34-9fb4-d134da2c132d" />
 
-Transformamos a economia invisível de CO₂ em dados claros, comparáveis e fáceis de entender.
+# Carbon Defuse
 
-Projeto desenvolvido pelo **Grupo 5 — Sistemas de Informação · CESAR School · 2026.1**
+Calculadora de impacto ambiental integrada à Taggy.
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react\&logoColor=white)](#)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript\&logoColor=white)](#)
-[![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite\&logoColor=white)](#)
-
+Projeto desenvolvido pelo Grupo 5 do curso de Sistemas de Informação da CESAR School, período 2026.1.
 
 </div>
 
----
+## Links do projeto
 
-## 🔗 Links do projeto
+* Site institucional: [Google Sites](https://sites.google.com/cesar.school/grupo-5-si-2026-1?usp=sharing)
+* Protótipo: [Figma](https://www.figma.com/files/team/1616514991350928449/project/574924099?fuid=1617004462867806530)
+* Organização das tarefas: [Trello](https://trello.com/b/9rcdpxLn/carbon-defuse)
+* Repositório principal: [GitHub do Carbon Defuse](https://github.com/gabriellucasknp/Carbon-Defuse)
+* Repositório do back-end: [Car Route Management System](https://github.com/FelipeUCAA/Car-Route-Management-System/tree/back-end)
+* Issues do projeto: [GitHub Issues](https://github.com/gabriellucasknp/Carbon-Defuse/issues)
 
-| Recurso                     | Link                                                                                                     |
-| --------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 🌐 Site institucional       | [Google Sites](https://sites.google.com/cesar.school/grupo-5-si-2026-1?usp=sharing)                      |
-| 🎨 Protótipo                | [Figma](https://www.figma.com/files/team/1616514991350928449/project/574924099?fuid=1617004462867806530) |
-| 📋 Gestão do projeto        | [Trello / Board](https://trello.com/b/9rcdpxLn/carbon-defuse)                                            |
-| 💻 Repositório principal    | [GitHub — Carbon Defuse](https://github.com/gabriellucasknp/Carbon-Defuse)                               |
-| ⚙️ Repositório com back-end | [GitHub — branch back-end](https://github.com/FelipeUCAA/Car-Route-Management-System/tree/back-end)      |
+## Sobre o projeto
 
----
+A ideia do Carbon Defuse veio de uma situação que já acontece na prática. Quando o motorista passa pelo pedágio sem precisar parar, ele perde menos tempo em fila, gasta menos combustível e reduz a emissão de CO₂ durante o trajeto. Em estacionamentos, o uso da tag também evita a impressão do ticket de papel.
 
-## 📌 Sobre o projeto
+Mesmo com esses benefícios, normalmente o usuário enxerga a Taggy apenas como uma forma mais rápida de passar por pedágios e estacionamentos. Nosso projeto foi criado para mostrar esse impacto de maneira simples.
 
-A Taggy já contribui para uma experiência mais eficiente: o motorista evita filas em pedágios, reduz paradas desnecessárias, economiza combustível e, consequentemente, deixa de emitir parte do CO₂ que seria gerado durante a espera.
+No sistema, o usuário pode informar uma rota e os dados do veículo. A partir disso, o Carbon Defuse apresenta uma estimativa de distância, gasto de combustível, custo da viagem, tempo economizado e emissão de CO₂. Também é possível comparar o cenário com Taggy e sem Taggy.
 
-O problema é que esse impacto sustentável normalmente fica invisível para o usuário. Para muita gente, a tag é vista apenas como uma solução de conveniência para evitar filas, e não como uma ferramenta que também pode gerar impacto ambiental positivo.
+Para empresas, o sistema possui uma área voltada para frotas, com dados que podem ajudar no acompanhamento de custos, rotas e indicadores ambientais.
 
-O **Carbon Defuse** resolve esse problema ao transformar dados de uso em indicadores ambientais claros. A plataforma permite simular rotas, comparar cenários com e sem Taggy, visualizar economia de tempo e combustível, acompanhar emissões evitadas e gerar indicadores úteis para usuários e empresas.
+## Objetivo
 
----
+Nosso objetivo é tornar visível uma economia que já existe, mas que muitas vezes passa despercebida. Em vez de mostrar apenas números soltos, o sistema organiza as informações em gráficos, comparações e equivalências mais fáceis de entender.
 
-## 🎯 Proposta de valor
+## Funcionalidades
 
-### Para usuários
+1. Simulação de rota com origem, destino e veículo.
+2. Estimativa de distância e consumo de combustível.
+3. Comparação da viagem com Taggy e sem Taggy.
+4. Cálculo aproximado da emissão de CO₂.
+5. Visualização do tempo e do combustível economizados.
+6. Dashboard com os principais resultados.
+7. Histórico de simulações para usuários cadastrados.
+8. Área corporativa para análise de frotas.
+9. Projeção mensal de gastos e impacto ambiental.
+10. Geração de relatórios para consulta e apresentação dos dados.
 
-* Visualizar o CO₂ evitado em viagens.
-* Entender a economia de tempo e combustível.
-* Acompanhar o impacto ambiental do uso da Taggy.
-* Ter uma visão simples e tangível da sustentabilidade no dia a dia.
+## Cálculo de CO₂
 
-### Para empresas
-
-* Acompanhar indicadores ESG.
-* Analisar impacto ambiental de frotas.
-* Gerar relatórios ambientais.
-* Apoiar decisões logísticas mais eficientes e sustentáveis.
-
----
-
-## ✨ Funcionalidades principais
-
-| Funcionalidade                  | Descrição                                                                                           |
-| ------------------------------- | --------------------------------------------------------------------------------------------------- |
-| 🚗 Simulação de rota            | Permite informar origem, destino e veículo para estimar distância, combustível e impacto ambiental. |
-| ⛽ Estimativa de combustível     | Calcula consumo aproximado com base na distância e no consumo médio do veículo.                     |
-| 💳 Comparação com/sem Taggy     | Compara tempo, consumo, custos e emissão de CO₂ nos dois cenários.                                  |
-| 🌱 Cálculo de impacto ambiental | Estima emissões de CO₂ com base no combustível consumido.                                           |
-| 📊 Dashboard interativo         | Exibe cards, gráficos e equivalências ambientais.                                                   |
-| 📈 Histórico de simulações      | Registra simulações realizadas por usuários autenticados.                                           |
-| 🏢 Modo corporativo             | Permite análise gerencial para frotas e empresas.                                                   |
-| 📄 Relatórios automáticos       | Exportação de relatórios ambientais em PDF e Excel.                                                 |
-
----
-
-## 🧮 Como o cálculo de CO₂ funciona
-
-O sistema utiliza uma estimativa baseada na lógica do **GHG Protocol**, padrão amplamente usado para inventários de emissões.
+O sistema trabalha com uma estimativa baseada no consumo do veículo e no fator de emissão do combustível.
 
 ```text
-Litros consumidos = Distância percorrida ÷ Consumo médio do veículo
+Litros consumidos = Distância percorrida / Consumo médio do veículo
 
-CO₂ emitido = Litros consumidos × Fator de emissão do combustível
+CO₂ emitido = Litros consumidos x Fator de emissão do combustível
 ```
 
-### Fatores de emissão utilizados
+Fatores usados no projeto:
 
-| Combustível         | Fator de emissão |
-| ------------------- | ---------------: |
-| Diesel              |    2,67 kg CO₂/L |
-| Gasolina com etanol |    2,27 kg CO₂/L |
-| Etanol              |    1,46 kg CO₂/L |
-| GNV                 |   2,02 kg CO₂/m³ |
+* Diesel: 2,67 kg de CO₂ por litro.
+* Gasolina com etanol: 2,27 kg de CO₂ por litro.
+* Etanol: 1,46 kg de CO₂ por litro.
+* GNV: 2,02 kg de CO₂ por metro cúbico.
 
-> O Carbon Defuse não substitui um inventário ambiental corporativo completo. A proposta é gerar uma estimativa inteligente e compreensível a partir das rotas simuladas.
+Esses resultados são aproximações usadas para a simulação. O Carbon Defuse não substitui um inventário ambiental completo de uma empresa.
 
----
+## Tecnologias utilizadas
 
-## 🛠️ Tecnologias utilizadas
+### Front-end
 
-| Camada        | Tecnologias                          |
-| ------------- | ------------------------------------ |
-| Front-end     | React 18, TypeScript, React Router   |
-| Build / Dev   | Vite                                 |
-| Estilização   | Tailwind CSS, MUI, Radix UI / shadcn |
-| Gráficos      | Recharts                             |
-| Formulários   | React Hook Form                      |
-| Ícones e UI   | Lucide Icons, Motion, Sonner         |
-| Back-end      | Node.js, Express, Prisma, SQLite     |
-| Versionamento | Git e GitHub                         |
+* React 18
+* TypeScript
+* React Router
+* Vite
+* Tailwind CSS
+* Material UI
+* Radix UI e shadcn/ui
+* Recharts
+* React Hook Form
 
----
+### Back-end
 
-## 🚀 Como rodar o projeto localmente
+* Node.js
+* Express
+* Prisma
+* SQLite
+
+### Organização do projeto
+
+* Git e GitHub
+* Trello
+* Figma
+* Google Sites
+* Discord
+* WhatsApp
+
+## Como rodar o projeto
 
 ### Front-end
 
@@ -122,7 +110,7 @@ npm install
 npm run dev
 ```
 
-A aplicação ficará disponível em:
+O front-end ficará disponível em:
 
 ```text
 http://localhost:5173
@@ -139,408 +127,186 @@ npx prisma db push
 npx tsx src/server.ts
 ```
 
-O servidor ficará disponível em:
+O back-end ficará disponível em:
 
 ```text
 http://localhost:3000
 ```
 
----
+## Entregas do projeto
 
-# ✅ Entrega 03 — Implementação de 3 histórias
+### Entrega 03
 
-## Histórias implementadas nesta entrega
+Nesta entrega, o grupo apresentou três histórias principais funcionando:
 
-| Nº | História                                                                                                                      | Status         | Evidência                |
-| -: | ----------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------ |
-|  1 | Como usuário, quero inserir origem, destino e veículo para calcular custo, distância, combustível e emissão de CO₂ da viagem. | ✅ Implementada | Screencast da Entrega 03 |
-|  2 | Como usuário, quero comparar o cenário com e sem Taggy para visualizar economia de tempo, combustível e emissão.              | ✅ Implementada | Screencast da Entrega 03 |
-|  3 | Como usuário, quero visualizar os resultados em dashboard e histórico para acompanhar meu impacto ambiental.                  | ✅ Implementada | Screencast da Entrega 03 |
+1. Cálculo da viagem usando origem, destino e veículo.
+2. Comparação dos resultados com Taggy e sem Taggy.
+3. Visualização dos dados no dashboard e no histórico.
 
----
+Screencast da Entrega 03:
 
-## Checklist da Entrega 03
+https://www.loom.com/share/ea465ea16c464d9e9664791bc43fab5d
 
-| Critério solicitado                | Status                        | Evidência                       |
-| ---------------------------------- | ----------------------------- | ------------------------------- |
-| Implementar pelo menos 3 histórias | ✅ Concluído                   | Histórias listadas acima        |
-| Criação de sprint no Board         | ✅ Concluído                   | Sprint 01 documentada abaixo    |
-| Ambiente de versionamento atuante  | ✅ Concluído                   | Repositórios no GitHub          |
-| Commits frequentes                 | ✅ Em andamento                | Histórico de commits do GitHub  |
-| Novo screencast no README          | 🔄 A inserir                  | Link do vídeo                   |
-| Quadro da Sprint 01 atualizado     | ✅ Concluído                   | Quadro em Markdown abaixo       |
-| Backlog atualizado no README       | ✅ Concluído                   | Backlog em Markdown abaixo      |
-| Issue/Bug Tracker no GitHub        | ⚠️ Pendente de evidência real | Criar issues reais no GitHub    |
-| Testes de sistema                  | 🔄 A inserir                  | Screencast dos testes no cartão |
-| Relato de programação em par       | ✅ Documentado                 | Seção abaixo                    |
+### Entrega 04
 
----
+Na Entrega 04, o grupo continuou o desenvolvimento das histórias, realizou ajustes no sistema, trabalhou na integração entre front-end e back-end e apresentou o deploy da aplicação.
 
-## 🎥 Screencasts
+Screencast da Entrega 04:
 
-| Entrega    | Foco                                                | Link                               |
-| ---------- | --------------------------------------------------- | ---------------------------------- |
-| Entrega 03 | Novas histórias implementadas + testes de sistema   | https://www.loom.com/share/ea465ea16c464d9e9664791bc43fab5d
-
-| Entrega 04 | [Novas histórias + deploy com URL aparecendo na tela](https://www.loom.com/share/d2733988810243f1afc6e4c0df53b11f) | https://www.loom.com/share/ea465ea16c464d9e9664791bc43fab5d |
-
----
-
-# 🗂️ Quadro da Sprint e Backlog
-
-Esta seção foi feita em **Markdown puro**, sem depender de arquivos PNG. Assim o conteúdo aparece direto no README.
+https://www.loom.com/share/d2733988810243f1afc6e4c0df53b11f
 
 ## Backlog priorizado
 
-| Status      | Item                                | Projeto   | Observações                                        |
-| ----------- | ----------------------------------- | --------- | -------------------------------------------------- |
-| ✅ Concluído | Elicitação de requisitos            | Projeto 2 | Entrega inicial concluída                          |
-| ✅ Concluído | Protótipos Lo-Fi                    | Projeto 2 | Protótipos organizados no Figma                    |
-| ✅ Concluído | Screencast                          | Projeto 2 | Vídeo da etapa anterior registrado                 |
-| ✅ Concluído | Comparar custos com e sem Taggy/UH1 | Projeto 2 | História base para comparação com/sem Taggy        |
-| ✅ Concluído | Visualização do impacto ambiental   | Projeto 2 | Indicadores e equivalência ambiental               |
-| ✅ Concluído | Dashboard com dados principais      | Projeto 2 | Cards e gráficos principais                        |
-| ✅ Concluído | Histórico de simulações             | Projeto 2 | Acompanhamento das simulações do usuário           |
-| ✅ Concluído | Simulação de rota                   | Projeto 2 | Origem, destino, veículo e resultados              |
-| ✅ Concluído | Modo corporativo                    | Projeto 2 | Indicadores para empresas/frotas                   |
-| ✅ Concluído | Relatórios ambientais               | Projeto 2 | Exportação planejada/implementada conforme entrega |
+1. Calcular viagem. Prioridade alta. Concluído.
+2. Estimar combustível. Prioridade alta. Concluído.
+3. Comparar o cenário com Taggy e sem Taggy. Prioridade alta. Concluído.
+4. Calcular o impacto ambiental. Prioridade alta. Concluído.
+5. Mostrar a economia de tempo. Prioridade média. Concluído.
+6. Exibir os resultados em gráficos. Prioridade média. Concluído.
+7. Salvar simulações no histórico. Prioridade média. Concluído.
+8. Fazer uma projeção mensal. Prioridade baixa. Concluído.
+9. Criar o modo empresa. Prioridade baixa. Concluído.
+10. Gerar relatórios automáticos. Concluído.
 
----
+## Organização das sprints
 
-## Sprint 01 — Entrega 03
+### Sprint 01, de 25/05 a 28/05
 
-| Status          | Tarefa                              | Responsável | Prioridade | Comentários                             |
-| --------------- | ----------------------------------- | ----------- | ---------- | --------------------------------------- |
-| ✅ Concluído     | Elicitação de requisitos            | Grupo 5     | Alta       | Base do produto e definição do problema |
-| ✅ Concluído     | Protótipos Lo-Fi                    | Grupo 5     | Alta       | Fluxo inicial validado                  |
-| ✅ Concluído     | Screencast                          | Grupo 5     | Alta       | Registro da apresentação                |
-| ✅ Concluído     | Comparar custos com e sem Taggy/UH1 | Grupo 5     | Alta       | História usada na demonstração          |
-| 🔄 Em andamento | Implementação de 6 histórias        | Grupo 5     | Alta       | Continuação para Entrega 04             |
-| 🔄 Em andamento | Deploy                              | Grupo 5     | Alta       | Preparação da publicação                |
-| 🔄 Em andamento | Desenvolvimento do Back-End         | Grupo 5     | Alta       | API, autenticação e persistência        |
-| 🔄 Em andamento | Front-End                           | Grupo 5     | Alta       | Telas, componentes e integração         |
-| 🔄 Em andamento | Protótipo UX                        | Grupo 5     | Média      | Ajustes visuais e experiência           |
-| ⏳ A fazer       | Testes                              | Grupo 5     | Alta       | Testes finais de sistema                |
-| ⏳ A fazer       | Armazenamento do Banco de Dados     | Grupo 5     | Alta       | Persistência das simulações             |
-| ⏳ A fazer       | Desenvolvimento da API              | Grupo 5     | Alta       | Rotas e comunicação com o front         |
-| ⏳ A fazer       | Design                              | Grupo 5     | Média      | Refinamento visual                      |
+Organização do backlog, definição das histórias e divisão inicial das tarefas.
 
----
+### Sprint 02, de 29/05 a 01/06
 
-# 🐛 Issue / Bug Tracker
+Implementação das histórias principais e início dos testes.
 
-O acompanhamento de bugs, melhorias e tarefas técnicas deve ser registrado no GitHub Issues.
+### Sprint 03, de 02/06 a 06/06
 
-🔗 [Issues do projeto](https://github.com/gabriellucasknp/Carbon-Defuse/issues)
+Ajustes no front-end, integração com o back-end, revisão do sistema e preparação da Entrega 03.
 
-## Status atual
+### Sprint 04, de 08/06 a 11/06
 
-O grupo optou por **não inserir imagem falsa** do Issue/Bug Tracker. A evidência correta deve ser adicionada após a criação das issues reais no GitHub.
+Implementação das novas histórias, testes finais, deploy e preparação da Entrega 04.
 
-## Issues sugeridas para registrar no GitHub
+## Testes do sistema
 
-| Tipo     | Título sugerido                                        | Prioridade |
-| -------- | ------------------------------------------------------ | ---------- |
-| História | Implementar simulação de rota com cálculo ambiental    | Alta       |
-| História | Implementar comparação com e sem Taggy                 | Alta       |
-| História | Implementar dashboard e histórico de impacto ambiental | Alta       |
-| Bug      | Ajustar responsividade dos cards no dashboard          | Média      |
-| Melhoria | Revisar feedback visual da geração de relatório        | Média      |
-| Bug      | Validar campos obrigatórios na simulação               | Alta       |
+Durante o desenvolvimento, testamos os principais fluxos da aplicação:
 
----
+* Login e autenticação.
+* Cadastro de usuário.
+* Simulação de rota.
+* Comparação com Taggy e sem Taggy.
+* Carregamento do dashboard.
+* Salvamento e consulta do histórico.
+* Geração de relatório na área corporativa.
 
-# 🧪 Testes de Sistema
+Os problemas encontrados durante os testes foram registrados e ajustados pelo grupo. O acompanhamento das correções pode ser feito na área de Issues do GitHub.
 
-Os testes de sistema validam o fluxo principal do Carbon Defuse de ponta a ponta.
+## Programação em par
 
-| Teste                    | Resultado esperado                                  | Status     |
-| ------------------------ | --------------------------------------------------- | ---------- |
-| Login e autenticação     | Usuário consegue acessar o sistema                  | ✅ Aprovado |
-| Cadastro de usuário      | Usuário consegue criar conta e acessar a plataforma | ✅ Aprovado |
-| Simulação de rota        | Sistema exibe distância, combustível e CO₂          | ✅ Aprovado |
-| Comparação com/sem Taggy | Sistema exibe economia nos dois cenários            | ✅ Aprovado |
-| Dashboard                | Cards e gráficos são carregados corretamente        | ✅ Aprovado |
-| Histórico                | Simulações aparecem no histórico do usuário         | ✅ Aprovado |
-| Relatório corporativo    | Sistema permite gerar relatório                     | ✅ Aprovado |
+Em algumas etapas, dividimos o grupo em duplas para facilitar o desenvolvimento e a revisão das tarefas.
 
-Screencast dos testes no cartão do Board:
+* Gabriel Lucas e Lucas Nery trabalharam na organização das histórias, no backlog, nos testes e na revisão geral do fluxo do sistema.
+* Felipe Ulisses e Gabriel Dias trabalharam no back-end, na autenticação, nas rotas da API e na persistência dos dados.
+* Jailson de Souza e Lucas Rogério trabalharam nas telas do front-end, no dashboard, no histórico e nos ajustes visuais.
 
-**[ADICIONAR LINK DO SCREENCAST DOS TESTES]**
+A maior dificuldade foi conciliar os horários de todo mundo. Mesmo assim, trabalhar em dupla ajudou porque uma pessoa conseguia desenvolver enquanto a outra revisava a lógica e percebia erros que poderiam passar despercebidos. Também facilitou a integração entre as partes do projeto.
 
----
+## Histórias de usuário no padrão 3Cs
 
-# 👥 Programação em Par
+### 1. Calcular viagem
 
-Durante a Entrega 03, a equipe experimentou programação em par para dividir responsabilidades, revisar decisões e reduzir erros de implementação.
+**Card:** Como usuário, quero informar origem, destino e veículo para calcular o custo da viagem.
 
-| Par                              | Funcionalidade trabalhada                                                     |
-| -------------------------------- | ----------------------------------------------------------------------------- |
-| Gabriel Lucas + Lucas Nery       | Organização das histórias, revisão do fluxo do usuário, backlog e priorização |
-| Felipe Ulisses + Gabriel Dias    | Integração do back-end, autenticação, rotas e persistência de dados           |
-| Jailson de Souza + Lucas Rogério | Telas do front-end, dashboard, histórico e melhorias visuais                  |
-| Gabriel Lucas + Lucas Nery       | Debug's, testes, restruturação na arquitetura do sistema no geral             |
+**Conversation:** O usuário preenche os dados da rota e escolhe o veículo. O sistema valida as informações e calcula distância, pedágios e consumo aproximado.
 
+**Confirmation:** Com os dados válidos, o sistema mostra o custo total. Caso algum campo esteja errado, o usuário recebe uma mensagem para corrigir.
 
-## Relato da experiência
+### 2. Estimar combustível
 
-A programação em par ajudou o grupo a validar decisões mais rapidamente. Enquanto uma pessoa conduzia a implementação, a outra revisava lógica, fluxo e possíveis erros. Isso facilitou principalmente a integração entre telas, simulações e dados exibidos no dashboard.
+**Card:** Como usuário, quero visualizar o gasto de combustível da viagem.
 
-A principal dificuldade foi alinhar horários entre os integrantes, mas a divisão por duplas tornou o desenvolvimento mais organizado. Para as próximas entregas, o grupo pretende manter esse formato, registrando melhor as sessões e vinculando cada funcionalidade aos cards do Board.
+**Conversation:** O cálculo usa a distância, o consumo médio do veículo, o tipo de combustível e o preço informado.
 
----
+**Confirmation:** O sistema mostra a quantidade de litros necessária e o custo estimado.
 
-# 📋 Histórias de usuário no padrão 3Cs
+### 3. Comparar com Taggy e sem Taggy
 
-## 1. 🚗 Calcular viagem
+**Card:** Como usuário, quero comparar os dois cenários para entender a economia gerada pela Taggy.
 
-### Card
+**Conversation:** O sistema calcula os resultados da mesma rota com Taggy e sem Taggy.
 
-Como usuário, quero inserir origem, destino e veículo para calcular custo da viagem.
+**Confirmation:** A tela mostra lado a lado os valores de tempo, combustível, custos e emissão de CO₂.
 
-### Conversation
+### 4. Visualizar a economia de tempo
 
-Entradas: origem, destino e veículo.
+**Card:** Como usuário, quero saber quanto tempo posso economizar nos pedágios.
 
-Validações: campos obrigatórios, endereço válido e veículo selecionado.
+**Conversation:** O sistema considera a rota, a quantidade de pedágios e uma estimativa do tempo de espera.
 
-Cálculos/consultas: rota, pedágios, distância e estimativa de consumo.
+**Confirmation:** O resultado mostra o tempo economizado por viagem e uma projeção mensal.
 
-Saída: custo total da viagem.
+### 5. Fazer uma simulação mensal
 
-### Confirmation
+**Card:** Como usuário, quero calcular os gastos das minhas viagens durante o mês.
 
-* Dado origem, destino e veículo válidos, o sistema exibe o custo total da viagem.
-* Se algum dado estiver inválido, o sistema exibe mensagem de erro clara e permite correção.
+**Conversation:** O usuário informa a frequência das viagens e o sistema repete os cálculos com base nessa quantidade.
 
----
+**Confirmation:** A tela mostra o gasto mensal, a economia com Taggy e uma projeção anual.
 
-## 2. ⛽ Estimar combustível
+### 6. Usar o modo empresa
 
-### Card
+**Card:** Como empresa, quero cadastrar veículos e rotas para acompanhar os custos da frota.
 
-Como usuário, quero ver o custo estimado de combustível para planejar gastos.
+**Conversation:** A empresa informa os veículos, as rotas e a frequência de uso.
 
-### Conversation
+**Confirmation:** O painel apresenta os resultados por veículo e o total da frota.
 
-Entradas: distância, tipo de combustível, consumo médio e preço do combustível.
+### 7. Visualizar gráficos
 
-Cálculos: litros necessários e custo total.
+**Card:** Como usuário, quero ver os resultados em gráficos para entender melhor os dados.
 
-Saídas: custo estimado e litros necessários.
+**Conversation:** Os dados das simulações são organizados em cards e gráficos.
 
-### Confirmation
+**Confirmation:** O usuário consegue visualizar os principais valores sem precisar analisar todos os cálculos separadamente.
 
-* Com entradas válidas, o sistema exibe litros necessários e custo estimado.
-* O resultado é consistente com a fórmula: `(distância ÷ consumo) × preço`.
+### 8. Visualizar o impacto ambiental
 
----
+**Card:** Como usuário, quero saber a quantidade aproximada de CO₂ emitida ou evitada na viagem.
 
-## 3. 💳 Comparar com/sem Taggy
+**Conversation:** O cálculo considera a rota, o consumo do veículo e o tipo de combustível.
 
-### Card
+**Confirmation:** O sistema apresenta a emissão estimada e compara os cenários com Taggy e sem Taggy.
 
-Como usuário, quero comparar custos para entender a economia.
+### 9. Salvar simulações
 
-### Conversation
+**Card:** Como usuário, quero salvar uma simulação para consultar depois.
 
-Entradas: rota e veículo.
+**Conversation:** O usuário precisa estar autenticado para salvar e acessar o histórico.
 
-O sistema calcula dois cenários: sem Taggy e com Taggy.
+**Confirmation:** A simulação salva aparece no histórico da conta.
 
-Deve comparar valor em pedágios, impacto no tempo, consumo e emissão de CO₂.
+### 10. Gerar relatórios
 
-### Confirmation
+**Card:** Como empresa, quero gerar relatórios para acompanhar os custos e o impacto ambiental da frota.
 
-* O sistema exibe um comparativo lado a lado com total sem Taggy e total com Taggy.
-* O sistema mostra economia de tempo, combustível e emissão.
+**Conversation:** A empresa escolhe o período e os dados que serão apresentados.
 
----
+**Confirmation:** O sistema gera um relatório com os principais resultados e comparações.
 
-## 4. ⏱️ Economia de tempo
+## Equipe
 
-### Card
-
-Como usuário, quero visualizar tempo economizado em pedágios.
-
-### Conversation
-
-Entradas: rota.
-
-O sistema identifica pedágios e estima tempo médio de fila.
-
-Saídas: tempo poupado por viagem, por mês e por ano.
-
-### Confirmation
-
-* O sistema mostra o total de tempo perdido sem Taggy.
-* O sistema mostra o tempo poupado com Taggy.
-
----
-
-## 5. 📅 Simulação mensal
-
-### Card
-
-Como usuário, quero simular meus gastos mensais com viagens.
-
-### Conversation
-
-Entradas: viagens recorrentes, frequência e rotas.
-
-O sistema multiplica custos pela frequência e consolida os resultados.
-
-Saídas: gasto mensal, economia mensal e projeção anual.
-
-### Confirmation
-
-* O sistema exibe resumo com gasto total do mês.
-* O sistema exibe economia com Taggy e projeção anual.
-
----
-
-## 6. 🏢 Modo empresa
-
-### Card
-
-Como empresa, quero inserir frota e rotas para calcular custos totais.
-
-### Conversation
-
-Entradas: frota, rotas e frequência.
-
-O sistema calcula os valores por veículo e agrega totais.
-
-Saídas: custo por veículo, custo total, economia potencial e ranking de rotas.
-
-### Confirmation
-
-* O painel exibe indicadores gerenciais com consolidação por frota e por veículo.
-
----
-
-## 7. 📊 Visualização gráfica
-
-### Card
-
-Como usuário, quero ver gráficos para entender os dados facilmente.
-
-### Conversation
-
-Entradas: dados vindos de cálculos e simulações.
-
-Tipos de visualização: rosca, barras, linha e cards de indicadores.
-
-### Confirmation
-
-* O sistema renderiza visualizações claras.
-* O usuário consegue interpretar os principais números sem dificuldade.
-
----
-
-## 8. 🌱 Impacto ambiental
-
-### Card
-
-Como usuário, quero ver redução de CO₂ para entender impacto ambiental.
-
-### Conversation
-
-Entradas: rota, veículo e combustível.
-
-O sistema estima emissão, distância e impacto das filas.
-
-Saídas: redução estimada de CO₂ e equivalência ambiental.
-
-### Confirmation
-
-* O sistema apresenta emissão estimada.
-* O sistema apresenta redução comparando com e sem Taggy.
-
----
-
-## 9. 💾 Salvar simulações
-
-### Card
-
-Como usuário, quero salvar cálculos para consultar depois.
-
-### Conversation
-
-Requer autenticação.
-
-Ações: salvar com nome, listar histórico, visualizar, editar, excluir e compartilhar.
-
-### Confirmation
-
-* Usuário autenticado consegue salvar e reencontrar a simulação no histórico.
-* Usuário não autenticado é direcionado ao login.
-
----
-
-## 10. 📄 Relatórios automáticos
-
-### Card
-
-Como empresa, quero gerar relatórios para tomada de decisão.
-
-### Conversation
-
-Entradas: período e escopo.
-
-Conteúdo: gráficos, resumo de custos, impacto ambiental e comparativos.
-
-Exportação: PDF, Excel/CSV e envio automático por e-mail.
-
-### Confirmation
-
-* O sistema gera relatório com os blocos definidos.
-* O sistema permite exportação em PDF e CSV/Excel.
-
----
-
-# 📅 Cronograma de Sprints
-
-| Sprint    | Período       | Meta                                                                                       |
-| --------- | ------------- | ------------------------------------------------------------------------------------------ |
-| Sprint 01 | 25/05 – 28/05 | Kickoff da Entrega 03, organização do backlog, criação dos cards e definição das histórias |
-| Sprint 02 | 29/05 – 01/06 | Implementação das 3 histórias principais e testes de sistema                               |
-| Sprint 03 | 02/06 – 06/06 | Ajustes visuais, documentação, screencast e preparação da Entrega 03                       |
-| Sprint 04 | 08/06 – 11/06 | Deploy, novas histórias e preparação da Entrega 04                                         |
-
----
-
-# 📌 Status das entregas
-
-| Entrega    | Descrição                                                 | Status            |
-| ---------- | --------------------------------------------------------- | ----------------- |
-| Entrega 01 | Backlog, histórias no padrão 3Cs e diagramas              | ✅ Concluída       |
-| Entrega 02 | Protótipos Lo-Fi e screencast                             | ✅ Concluída       |
-| Entrega 03 | Implementação de 3 histórias                              | 🔄 Em finalização |
-| Entrega 04 | Implementação de 6 histórias, deploy e documentação final | 🔄 Planejada      |
-
----
-
-# 👥 Equipe — Grupo 5
-
-| Nome             | Função                   | Contato                                         |
-| ---------------- | ------------------------ | ----------------------------------------------- |
-| Gabriel Lucas    | Scrum Master             | [glss@cesar.school](mailto:glss@cesar.school)   |
-| Lucas Nery       | Product Owner            | [lns3@cesar.school](mailto:lns3@cesar.school)   |
-| Felipe Ulisses   | Desenvolvedor Full Stack | [fucaa@cesar.school](mailto:fucaa@cesar.school) |
-| Jailson de Souza | Desenvolvedor Front-End  | [jsj3@cesar.school](mailto:jsj3@cesar.school)   |
-| Gabriel Dias     | Desenvolvedor Back-End   | [gdmm@cesar.school](mailto:gdmm@cesar.school)   |
-| Lucas Rogério    | Desenvolvedor Front-End  | [lrmb@cesar.school](mailto:lrmb@cesar.school)   |
-
-Ferramentas de gestão: **Trello**, **Figma**, **Google Sites**, **GitHub**, **Discord** e **WhatsApp**.
-
----
+* Gabriel Lucas: Scrum Master. Contato: glss@cesar.school
+* Lucas Nery: Product Owner. Contato: lns3@cesar.school
+* Felipe Ulisses: Desenvolvedor Full Stack. Contato: fucaa@cesar.school
+* Jailson de Souza: Desenvolvedor Front-end. Contato: jsj3@cesar.school
+* Gabriel Dias: Desenvolvedor Back-end. Contato: gdmm@cesar.school
+* Lucas Rogério: Desenvolvedor Front-end. Contato: lrmb@cesar.school
 
 <div align="center">
 
-**Carbon Defuse · CESAR School · Sistemas de Informação 2026.1**
+Carbon Defuse
 
-*Tornando visível o impacto ambiental que já existe.* 🌱
+CESAR School
+
+Sistemas de Informação 2026.1
 
 </div>
-
