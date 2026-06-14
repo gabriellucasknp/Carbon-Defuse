@@ -1,9 +1,13 @@
 <div align="center">
-  <img width="220" alt="Logo Carbon Defuse" src="https://github.com/user-attachments/assets/804996da-c484-4b34-9fb4-d134da2c132d">
-</div>
+
+<img width="320" alt="Logo do Carbon Defuse" src="https://github.com/user-attachments/assets/42083cce-ec6c-433b-9e7c-d95228a9d08b">
+
 # Carbon Defuse
 
 Calculadora de impacto ambiental integrada à Taggy.
+
+</div>
+
 
 Projeto desenvolvido pelo Grupo 5 do curso de Sistemas de Informação da CESAR School, período 2026.1.
 
