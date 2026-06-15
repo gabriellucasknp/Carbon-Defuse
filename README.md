@@ -154,6 +154,8 @@ Screencast da Entrega 04:
 
 https://www.loom.com/share/d2733988810243f1afc6e4c0df53b11f
 
+Screencast Post Deploy: 
+https://youtu.be/rO09seKZXX0
 ## Backlog priorizado
 
 1. Calcular viagem. Prioridade alta. Concluído.
