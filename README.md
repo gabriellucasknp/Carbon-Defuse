@@ -185,6 +185,11 @@ Ajustes no front-end, integração com o back-end, revisão do sistema e prepara
 
 Implementação das novas histórias, testes finais, deploy e preparação da Entrega 04.
 
+==============================================================================================================================
+
+Sprint Geral Mostrando a Conclusão de todas
+<img width="1700" height="712" alt="print-quadro-da-sprint" src="https://github.com/user-attachments/assets/2df1a24e-4e20-4838-9ed3-c760f859e4c9" />
+
 ## Testes do sistema
 
 Durante o desenvolvimento, testamos os principais fluxos da aplicação:
