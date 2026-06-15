@@ -187,7 +187,11 @@ Ajustes no front-end, integração com o back-end, revisão do sistema e prepara
 
 Implementação das novas histórias, testes finais, deploy e preparação da Entrega 04.
 
-==============================================================================================================================
+<img width="275" height="548" alt="image" src="https://github.com/user-attachments/assets/13e37349-5ef8-4d35-8ea5-a05adadbba04" />
+<img width="260" height="583" alt="image" src="https://github.com/user-attachments/assets/af7e7cfc-2c51-49ce-9be7-ac697cc33c0e" />
+<img width="300" height="716" alt="a" src="https://github.com/user-attachments/assets/42210e8f-88c8-4733-ae91-3ecf76bdfa0d" />
+
+
 
 Sprint Geral Mostrando a Conclusão de todas
 
