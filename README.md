@@ -181,6 +181,8 @@ Implementação das histórias principais e início dos testes.
 
 Ajustes no front-end, integração com o back-end, revisão do sistema e preparação da Entrega 03.
 
+<img width="1700" height="712" alt="print-quadro-da-sprint" src="https://github.com/user-attachments/assets/2df1a24e-4e20-4838-9ed3-c760f859e4c9" />
+
 ### Sprint 04, de 08/06 a 11/06
 
 Implementação das novas histórias, testes finais, deploy e preparação da Entrega 04.
@@ -188,7 +190,7 @@ Implementação das novas histórias, testes finais, deploy e preparação da En
 ==============================================================================================================================
 
 Sprint Geral Mostrando a Conclusão de todas
-<img width="1700" height="712" alt="print-quadro-da-sprint" src="https://github.com/user-attachments/assets/2df1a24e-4e20-4838-9ed3-c760f859e4c9" />
+
 
 ## Testes do sistema
 
