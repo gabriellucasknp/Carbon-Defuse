@@ -217,13 +217,19 @@ Os problemas encontrados durante os testes foram registrados e ajustados pelo gr
 
 ## Programação em par
 
-Em algumas etapas, dividimos o grupo em duplas para facilitar o desenvolvimento e a revisão das tarefas.
+Em algumas etapas do projeto, Lucas Nery e Gabriel Lucas trabalharam em dupla para facilitar o desenvolvimento e a revisão das tarefas. Durante esse processo, os dois participaram da organização das histórias, do backlog, dos testes e da revisão geral do fluxo do sistema.
 
-* Gabriel Lucas e Lucas Nery trabalharam na organização das histórias, no backlog, nos testes e na revisão geral do fluxo do sistema.
-* Felipe Ulisses e Gabriel Dias trabalharam no back-end, na autenticação, nas rotas da API e na persistência dos dados.
-* Jailson de Souza e Lucas Rogério trabalharam nas telas do front-end, no dashboard, no histórico e nos ajustes visuais.
+A programação em par aconteceu por meio de chamadas no Discord, enquanto o código era desenvolvido e analisado em conjunto. Dessa forma, enquanto um realizava as alterações, o outro acompanhava, ajudava na lógica e identificava possíveis erros.
 
-A maior dificuldade foi conciliar os horários de todo mundo. Mesmo assim, trabalhar em dupla ajudou porque uma pessoa conseguia desenvolver enquanto a outra revisava a lógica e percebia erros que poderiam passar despercebidos. Também facilitou a integração entre as partes do projeto.
+<img width="100%" alt="Lucas Nery e Gabriel Lucas desenvolvendo o projeto" src="https://github.com/user-attachments/assets/c93a25a3-d2bf-4c83-941a-22169c44207c" />
+
+<br>
+
+<p align="center">
+  <img width="347" alt="Lucas Nery e Gabriel Lucas em chamada no Discord" src="https://github.com/user-attachments/assets/87d0f220-6bf5-44ab-9b59-6c180108286f" />
+</p>
+
+A maior dificuldade foi conciliar os horários, mas o trabalho em dupla facilitou a comunicação, a revisão do código e a resolução de problemas. Não houve programação em par realizada pelas outras duplas do grupo.
 
 ## Histórias de usuário no padrão 3Cs
 
