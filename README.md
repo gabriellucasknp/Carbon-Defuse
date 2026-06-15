@@ -172,10 +172,13 @@ https://www.loom.com/share/d2733988810243f1afc6e4c0df53b11f
 ### Sprint 01, de 25/05 a 28/05
 
 Organização do backlog, definição das histórias e divisão inicial das tarefas.
+<img width="527" height="647" alt="image" src="https://github.com/user-attachments/assets/f8d7878c-7e25-4b45-98a7-d3be10e8d8bd" />
+
 
 ### Sprint 02, de 29/05 a 01/06
 
-Implementação das histórias principais e início dos testes.
+<img width="300" height="716" alt="a" src="https://github.com/user-attachments/assets/42210e8f-88c8-4733-ae91-3ecf76bdfa0d" />
+
 
 ### Sprint 03, de 02/06 a 06/06
 
@@ -189,7 +192,7 @@ Implementação das novas histórias, testes finais, deploy e preparação da En
 
 <img width="275" height="548" alt="image" src="https://github.com/user-attachments/assets/13e37349-5ef8-4d35-8ea5-a05adadbba04" />
 <img width="260" height="583" alt="image" src="https://github.com/user-attachments/assets/af7e7cfc-2c51-49ce-9be7-ac697cc33c0e" />
-<img width="300" height="716" alt="a" src="https://github.com/user-attachments/assets/42210e8f-88c8-4733-ae91-3ecf76bdfa0d" />
+
 
 
 
