@@ -2,7 +2,7 @@ import { pdf } from "@react-pdf/renderer";
 import { saveAs } from "file-saver";
 import { useEffect, useMemo, useState } from "react";
 import PageLayout from "../components/PageLayout";
-import { API_URL } from "../../lib/api";
+import { fetchSimulations } from "../../lib/api";
 import { CorporativoReport } from "../components/CorporativoReport";
 import { Car, CarFront, Truck } from "lucide-react";
 
@@ -11,28 +11,10 @@ export default function CorporativoPage() {
 
   useEffect(() => {
     const fetchSimulacoes = async () => {
-      try {
-        const token = localStorage.getItem("token");
-
-        const response = await fetch(
-          `${API_URL}/simulation`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const data = await response.json();
-
-        const corporativas = data.filter(
-          (s: any) => s.tipo === "corporativa"
-        );
-
-        setSimulacoes(corporativas);
-      } catch (error) {
-        console.error("Erro ao buscar simulações:", error);
-      }
+      const data = await fetchSimulations();
+      setSimulacoes(
+        data.filter((s: any) => s.tipo === "corporativa")
+      );
     };
 
     fetchSimulacoes();

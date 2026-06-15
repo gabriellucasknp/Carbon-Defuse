@@ -1,7 +1,7 @@
 import PageLayout from "../components/PageLayout";
 import { useState } from "react";
 import { useImpact } from "../context/ImpactContext";
-import { API_URL } from "../../lib/api";
+import { API_URL, authHeaders } from "../../lib/api";
 import { MapPin, Fuel, Leaf, Building2 } from "lucide-react";
 
 const locais: any = [
@@ -228,11 +228,6 @@ export default function SimulacaoPage() {
 
       setResult(resultado);
 
-      const token =
-        localStorage.getItem(
-          "token"
-        );
-
       try {
         const response =
           await fetch(
@@ -242,7 +237,7 @@ export default function SimulacaoPage() {
               headers: {
                 "Content-Type":
                   "application/json",
-                Authorization: `Bearer ${token}`
+                ...authHeaders()
               },
               body: JSON.stringify(
                 resultado
@@ -250,19 +245,27 @@ export default function SimulacaoPage() {
             }
           );
 
-        const data =
-          await response.json();
+        if (response.status === 401) {
+          localStorage.clear();
+          window.location.href = "/login";
+          return;
+        }
 
-        console.log(
-          "Salvo no banco:",
-          data
-        );
+        if (!response.ok) {
+          alert(
+            "Não foi possível salvar a simulação. Tente novamente."
+          );
+          return;
+        }
 
         addSimulation(
           resultado
         );
       } catch (err) {
         console.error(err);
+        alert(
+          "Erro ao conectar com o servidor."
+        );
       }
     };
   return (

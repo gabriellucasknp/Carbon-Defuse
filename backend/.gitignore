@@ -4,8 +4,10 @@ node_modules
 
 /generated/prisma
 
-# Banco SQLite local (no Render fica em /data via Persistent Disk)
-prisma/dev.db
-prisma/dev.db-journal
-prisma/dev.db-shm
-prisma/dev.db-wal
+# Banco SQLite local (no Render fica em /tmp ou /data via Persistent Disk)
+prisma/*.db
+prisma/*.db-journal
+prisma/*.db-shm
+prisma/*.db-wal
+# Pasta gerada por engano pela resolução relativa do Prisma
+prisma/prisma/

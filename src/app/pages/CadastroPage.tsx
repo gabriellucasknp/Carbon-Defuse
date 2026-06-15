@@ -44,11 +44,12 @@ export default function CadastroPage() {
       }
 
       localStorage.setItem("isAuthenticated", "true");
-      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       alert("Conta criada com sucesso!");
 
-
+      navigate("/");
     } catch (error) {
       console.error(error);
       alert("Erro ao conectar com servidor");

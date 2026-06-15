@@ -1,6 +1,6 @@
 import PageLayout from "../components/PageLayout";
 import { useEffect, useState } from "react";
-import { API_URL } from "../../lib/api";
+import { fetchSimulations } from "../../lib/api";
 import { Check, X } from "lucide-react";
 export default function ComparacaoPage() {
 
@@ -10,26 +10,8 @@ export default function ComparacaoPage() {
   useEffect(() => {
 
     const carregarSimulacoes = async () => {
-      try {
-
-        const token = localStorage.getItem("token");
-
-        const response = await fetch(
-          `${API_URL}/simulation`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const data = await response.json();
-
-        setHistory(data);
-
-      } catch (error) {
-        console.log(error);
-      }
+      const data = await fetchSimulations();
+      setHistory(data);
     };
 
     carregarSimulacoes();

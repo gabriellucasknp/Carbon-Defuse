@@ -1,6 +1,6 @@
 import PageLayout from "../components/PageLayout";
 import { useEffect, useState } from "react";
-import { API_URL } from "../../lib/api";
+import { fetchSimulations } from "../../lib/api";
 import {
   Leaf,
   Fuel,
@@ -15,30 +15,8 @@ export default function DashboardPage() {
   useEffect(() => {
 
     const carregarSimulacoes = async () => {
-      try {
-
-        const token = localStorage.getItem("token");
-
-        const response = await fetch(
-          `${API_URL}/simulation`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const data = await response.json();
-
-        const fisicas = data.filter(
-          (s: any) => s.tipo === "fisica"
-        );
-
-        setHistory(fisicas);
-
-      } catch (error) {
-        console.log(error);
-      }
+      const data = await fetchSimulations();
+      setHistory(data.filter((s: any) => s.tipo === "fisica"));
     };
 
     carregarSimulacoes();
